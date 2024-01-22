@@ -1,9 +1,7 @@
 CURRENT: 
     + Google Script: Schedule format (2h) [] @Current 
-    + Google Script: Async weekday and startdate handling (2h) []
 
 TODO: 
-
     need basic CRUD features (4h) []
         + Create a calendar 
         + Read a calendar
@@ -24,5 +22,6 @@ TODO:
     **HOPEfully this project could be done in a single day:  
 
 DONE: 
+    + Google Script: Async weekday and startdate handling (1h) [X]
     + Google Script: Create event (2h) [X] 
     + Google Script: Create Recurring event (2h) [X] 

@@ -76,13 +76,40 @@ Tu hoc
 /*     }, */
 /* ];   */
 
+
 // NOTE: this function only works correctly is the startdate is monday
+function adjustAsyncWeekdateStateDate(event) {
+    const weekday2offsetMapping = [0, 0, 0, 1, 2, 3, 4, 5, 6]; 
+
+    var dateArray = event.startDate.split('/');
+    const newDate = parseInt(dateArray[0], 10) + weekday2offsetMapping[event.weekday]; 
+    const month = parseInt(dateArray[1], 10);
+    const year = parseInt(dateArray[2], 10);
+
+    const newEvent = {
+        name: event.name, 
+        startDate: `${newDate}/${month}/${year}`, 
+        endDate: event.endDate, 
+        startTime: event.startTime, 
+        endTime: event.endTime, 
+        gap: event.gap, 
+    };
+
+    return newEvent;
+}
+
 const modifiedSchedule = (schedule) => {
-    // TODO: 
+    // TODO: @Current 
     // input: startdate, weekday
     // output: new startdate
-    
-    return;
+    const newArray = schedule.map(a => ({...a}));
+
+    for(let i = 0; i < schedule.length; i++) {
+        //schedule[i] = adjustAsyncWeekdateStateDate(schedule[i]);
+        newArray[i] = adjustAsyncWeekdateStateDate(schedule[i]);
+    }
+
+    return newArray;
 }
 
 
@@ -144,11 +171,16 @@ function calendarAutomation() {
     //calender.createEvent();
     const event = {
         name: "fucking test", 
-        startDate: "1/2/2024", 
-        endDate: "1/3/2024", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "1/6/2024", 
         startTime: "07:00:00", 
         endTime: "20:00:00", 
+        weekday: 2, 
         gap: 2, 
     };
-    createEvent(event, calendar);
+
+    //console.log(adjustAsyncWeekdateStateDate(event));
+    console.log(modifiedSchedule([event]));
+
+    //createEvent(event, calendar);
 }
