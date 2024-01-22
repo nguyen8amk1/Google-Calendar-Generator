@@ -154,7 +154,16 @@ function generateDateString(date, time) {
 }
 
 
-// NOTE: for now it's only works for event that start and end in a single day
+const weekdaysMapping= [0, 0, 
+    CalendarApp.Weekday.MONDAY,
+    CalendarApp.Weekday.TUESDAY,
+    CalendarApp.Weekday.WEDNESDAY,
+    CalendarApp.Weekday.THURSDAY,
+    CalendarApp.Weekday.FRIDAY,
+    CalendarApp.Weekday.SATURDAY,
+    CalendarApp.Weekday.SUNDAY,
+];
+
 function createEvent(event, calendar) {
     const validEvent = event;
 
@@ -177,6 +186,7 @@ function createEvent(event, calendar) {
     let currentstart = new Date(startstring);
     let currentend = new Date(endstring); 
 
+    /* NOTE: legacy recurrent events code 
     while(currentstart <= enddate) {
         console.log(currentstart, currentend);
         calendar.createEvent(name, currentstart, currentend)
@@ -186,10 +196,29 @@ function createEvent(event, calendar) {
         currentstart = nextOccuringDate(new Date(currentstart), gap);
         currentend = nextOccuringDate(new Date(currentend), gap);
     }
+    */
+
+    //console.log(validEvent);
+
+    const weekdays = [weekdaysMapping[validEvent.weekday]];
+
+    // TODO: need to find a way to do occurence not only 1
+    const eventSeries = calendar.createEventSeries(name,
+        currentstart, 
+        currentend,
+        CalendarApp.newRecurrence().addWeeklyRule().interval(gap)
+            .onlyOnWeekdays(weekdays)
+            .until(enddate))
+        .setDescription(validEvent.description)
+        .setColor(validEvent.color)
+        ;
+
+    //Logger.log(startstring + " " + endstring);
 }
 
 
-const calendarID = "98d078855a11dc4054a07514a203d2146517c06fefbbe8906c9e6f7ac40b032d@group.calendar.google.com";
+const calendarID = "b87b6edad2f8bf0cf5420b087953f5d38f023331028031004e7b3849874b455c@group.calendar.google.com";
+
 function calendarAutomation() {
     const calendar = CalendarApp.getCalendarById(calendarID);
     const correctedSchedule = modifiedSchedule(schedule);
@@ -212,6 +241,7 @@ function calendarAutomation() {
 
     for(let i = 0; i < correctedSchedule.length; i++) {
         const event = correctedSchedule[i];
-        createEvent(adjustAsyncWeekdateStateDate(event), calendar);
+        createEvent(event, calendar);
     }
 }
+

@@ -1,5 +1,5 @@
 CURRENT: 
-    + Google Script: Hoc tap Schedule (2h) [] @Current 
+    + Google Script: Have a new mechanism for recurring date (2h) [] @Current 
 /*
  * NOTE: Merge hoc o truong and tu hoc
  *      need to have alternating between tu hoc and hoc o truong (should not overlap)
@@ -143,6 +143,7 @@ TODO:
     **HOPEfully this project could be done in a single day:  
 
 DONE: 
+    + Google Script: Hoc tap Schedule (2h) [X] 
     + Google Script: Async weekday and startdate handling (1h) [X]
     + Google Script: Create event (2h) [X] 
     + Google Script: Create Recurring event (2h) [X] 
