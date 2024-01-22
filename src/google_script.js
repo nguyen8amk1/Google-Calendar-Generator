@@ -60,23 +60,21 @@ Tu hoc
 
 
 // TODO: hoc o truong first 
-let schedule = [
-    {
-        name: "", 
-
-        start: "", // start hoc ki - global start
-        end: "",   // end hoc ki - global end 
-
-        startdate: "", // format: dd/mm/yyyy - local start
-        enddate: "",  // local end 
-        starttime: "", 
-        endtime: "", 
-
-        weekday: "", //t2, t3, t4, t5
-
-        gap: "",
-    },
-];  
+/* let schedule = [ */
+/*     { */
+/*         name: "",  */
+/**/
+/*         startDate: "", // start hoc ki - global start */
+/*         endDate: "",   // end hoc ki - global end  */
+/* // */
+/*         startTime: "",  */
+/*         endTime: "",  */
+/**/
+/*         weekday: "", //t2, t3, t4, t5 */
+/**/
+/*         gap: "", */
+/*     }, */
+/* ];   */
 
 // NOTE: this function only works correctly is the startdate is monday
 const modifiedSchedule = (schedule) => {
@@ -87,21 +85,6 @@ const modifiedSchedule = (schedule) => {
     return;
 }
 
-function convertEventToValidFormat(event) {
-    // convert to: 
-    // calendar.createEvent("Testing", new Date("February 1, 2024 20:00:00 GMT+0700"), new Date("February 1, 2024 21:00:00 GMT+0700"));
-    // {
-    // name: 
-    // start: 
-    // end
-    // }
-    return 
-}
-
-function createEvent(event) {
-    const validEvent = convertEventToValidFormat(event);
-    calendar.createEvent(validEvent.name, validEvent.start, validEvent.end);
-}
 
 function nextOccuringDate(startDate, gap) {
     let nextStartDate = new Date(startDate); 
@@ -109,19 +92,49 @@ function nextOccuringDate(startDate, gap) {
     return nextStartDate; 
 }
 
-function createRecurringWeeklyEvent(event, gap) {
-    //let currentDate = new Date("February 1, 2024 20:00:00 GMT+0700");
-    let startDate = new Date("February 1, 2024 20:00:00 GMT+0700");
-    let endDate = new Date("February 30, 2024 20:00:00 GMT+0700");
-    
-    let currentDate = new Date(startDate);
 
-    while(currentDate <= endDate) {
-        // TODO: do the date creation code here 
-        console.log(currentDate);
+function generateDateString(date, time) {
+    const months = ["ERROR",  "January", "February", "March", "April", "May", "June", 
+               "July", "August", "September", "October", "November", "December" ];
+
+    var dateArray = date.split('/');
+
+    const newDate = parseInt(dateArray[0], 10); 
+    const month = months[parseInt(dateArray[1], 10)];
+    const year = parseInt(dateArray[2], 10);
+
+    return `${month} ${newDate}, ${year} ${time} GMT+0700`;
+}
 
 
-        currentDate = nextOccuringDate(new Date(currentDate), gap);
+// NOTE: for now it's only works for event that start and end in a single day
+function createEvent(event, calendar) {
+    const validEvent = event;
+
+    const name = validEvent.name;
+    const gap = validEvent.gap;
+
+    const startime = validEvent.startTime;
+    const endtime = validEvent.endTime;
+
+    const startdatestring = generateDateString(validEvent.startDate, startime);
+    const enddatestring = generateDateString(validEvent.endDate, startime);
+
+    let startdate = new Date(startdatestring);
+    let enddate = new Date(enddatestring); 
+
+
+    const startstring = generateDateString(validEvent.startDate, startime);
+    const endstring = generateDateString(validEvent.startDate, endtime);
+
+    let currentstart = new Date(startstring);
+    let currentend = new Date(endstring); 
+
+    while(currentstart <= enddate) {
+        console.log(currentstart, currentend);
+        calendar.createEvent(name, currentstart, currentend);
+        currentstart = nextOccuringDate(new Date(currentstart), gap);
+        currentend = nextOccuringDate(new Date(currentend), gap);
     }
 }
 
@@ -129,7 +142,13 @@ const calendarID = "cdfe30a8b78a68585a29715496615866fc5b2373752a5cdda890b1c4db44
 function calendarAutomation() {
     const calendar = CalendarApp.getCalendarById(calendarID);
     //calender.createEvent();
-  
+    const event = {
+        name: "fucking test", 
+        startDate: "1/2/2024", 
+        endDate: "1/3/2024", 
+        startTime: "07:00:00", 
+        endTime: "20:00:00", 
+        gap: 2, 
+    };
+    createEvent(event, calendar);
 }
-
-calendarAutomation();
