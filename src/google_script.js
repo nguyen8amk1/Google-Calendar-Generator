@@ -102,7 +102,157 @@ let schedule = [
         description: "B4.10 - SE334.O21.PMCL - VN", 
         color: COLORS.YELLOW, 
     }, 
+
 ];  
+
+const baomatweb = [
+    {
+        name: "Tự học: Bảo mật web và ứng dụng", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "07:30:00", 
+        endTime: "11:30:00", 
+        weekday: 2, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.BLUE, 
+    }, 
+    {
+        name: "Tự học: Bảo mật web và ứng dụng", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "13:00:00", 
+        endTime: "16:15:00", 
+        weekday: 4, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.BLUE, 
+    }, 
+    {
+        name: "Tự học: Bảo mật web và ứng dụng", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "13:00:00", 
+        endTime: "16:15:00", 
+        weekday: 7, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.BLUE, 
+    }, 
+    {
+        name: "Tự học: Bảo mật web và ứng dụng", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "20:00:00", 
+        endTime: "23:50:00", 
+        weekday: 3, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.BLUE, 
+    }, 
+    {
+        name: "Tự học: Bảo mật web và ứng dụng", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "07:30:00", 
+        endTime: "08:15:00", 
+        weekday: 6, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.BLUE, 
+    }, 
+    {
+        name: "Tự học: Bảo mật web và ứng dụng", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "10:00:00", 
+        endTime: "11:30:00", 
+        weekday: 6, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.BLUE, 
+    }, 
+    {
+        name: "Tự học: Bảo mật web và ứng dụng", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "20:00:00", 
+        endTime: "23:50:00", 
+        weekday: 6, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.BLUE, 
+    }, 
+
+    {
+        name: "Tự học: Bảo mật web và ứng dụng", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "07:30:00", 
+        endTime: "11:30:00", 
+        weekday: 5, 
+
+        gap: 2, 
+        description: "", 
+        color: COLORS.BLUE, 
+    }, 
+];
+
+const madoc = [
+    // TODO: 
+];
+
+const backendproject = [
+    // TODO: 
+];
+
+const tuduytinhtoan = [
+    // TODO: 
+];
+
+const pplaptrinh = [
+    // TODO: 
+];
+
+const dohoa = [
+    // TODO: 
+];
+
+const machinelearning = [
+    // TODO: 
+];
+
+const doanchuyennganh = [
+    // TODO: 
+];
+
+const tuhoc = [
+    ...baomatweb, 
+    ...madoc, 
+    ...backendproject, 
+    ...tuduytinhtoan, 
+    ...pplaptrinh, 
+    ...dohoa, 
+    ...machinelearning, 
+    ...doanchuyennganh, 
+]
+
+schedule = [...schedule, ...tuhoc];
 
 
 // NOTE: this function only works correctly is the startdate is monday
@@ -213,11 +363,12 @@ function createEvent(event, calendar) {
         .setColor(validEvent.color)
         ;
 
-    //Logger.log(startstring + " " + endstring);
+    Logger.log("Added: " + name);
+
 }
 
 
-const calendarID = "b87b6edad2f8bf0cf5420b087953f5d38f023331028031004e7b3849874b455c@group.calendar.google.com";
+const calendarID = "845f1e0262965c82a7f71c35048b3ff8a63129c86b75a57a5b5838b166aaa8b6@group.calendar.google.com";
 
 function calendarAutomation() {
     const calendar = CalendarApp.getCalendarById(calendarID);
