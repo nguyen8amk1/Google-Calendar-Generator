@@ -1,80 +1,108 @@
-/*
- * NOTE: Merge hoc o truong and tu hoc
- *      need to have alternating between tu hoc and hoc o truong (should not overlap)
- *
-Hoc o truong: 
-    ... 
+const COLORS = {
+    BLUE : CalendarApp.EventColor.BLUE, 	
+    BROWN : CalendarApp.EventColor.BROWN, 
+    CHARCOAL: CalendarApp.EventColor.CHARCOAL, 
+    CHESTNUT: CalendarApp.EventColor.CHESTNUT, 
+    GRAY: CalendarApp.EventColor.GRAY, 
+    GREEN:CalendarApp.EventColor.GREEN, 
+    INDIGO: CalendarApp.EventColor.INDIGO, 
+    LIME: CalendarApp.EventColor.LIME, 
+    MUSTARD	: CalendarApp.EventColor.MUSTARD, 
+    OLIVE: CalendarApp.EventColor.OLIVE, 
+    ORANGE: CalendarApp.EventColor.ORANGE, 
+    PINK: CalendarApp.EventColor.PINK, 
+    PLUM: CalendarApp.EventColor.PLUM, 
+    PURPLE	: CalendarApp.EventColor.PURPLE, 
+    RED	: CalendarApp.EventColor.RED, 
+    RED_ORANGE	: CalendarApp.EventColor.RED_ORANGE, 
+    SEA_BLUE: CalendarApp.EventColor.SEA_BLUE, 
+    SLATE: CalendarApp.EventColor.SLATE, 
+    TEAL: CalendarApp.EventColor.TEAL, 
+    YELLOW: CalendarApp.EventColor.YELLOW, 
+    TURQOISE: CalendarApp.EventColor.TURQOISE, 
+}; 
 
-Tu hoc
-    Bao Mat Web (****): 23 hours
-        t2: tiet 1, 2, 3, 4, 5  = 3.75 -> 16.25 hours left
-        t4: tiet 6, 7, 8, 9 = 3 -> 13.25 hours left 
-        t7: tiet 6, 7, 8, 9 = 3 -> 10.25 hours left 
-        t3: toi: 8h -> 12h  = 4 -> 6.25 hours left 
-        t6: tiet 1, 4, 5  = 4 hours left 
-        t6: toi: 8h -> 12h  = 0 hours left 
-
-        t5: tiet 1, 2, 3, 4, 5  = 3.75 -> 0 hours left
-
-    Ma Doc (***): 13 hours
-        t2: tiet 6, 7, 8, 9 = 3 -> 7 hours left 
-        t5: tiet 6, 7, 8, 9 = 3 -> 4 hours left 
-        t7: toi: 8h -> 12h  = 4 -> 0 hours left 
-
-        t3: tiet 6, 7, 8, 9 = 3 -> 0 hours left 
-
-    Backend Web Project (***):  19 hours
-        Project 1: 7 hours (focus on good CRUD and RestAPI)
-        Project 2: 8 hours (focus on security, also with good CRUD and RestAPI)
-
-        t3: toi: 8h -> 12h  = 4 -> 11 hours left 
-        t4: toi: 8h -> 12h  = 4 -> 7 hours left 
-        t5: toi: 8h -> 12h  = 4 -> 3 hours left 
-        cn: tiet 6, 7, 8, 9 = 3 -> 0 hours left 
-        
-        t7: tiet 1, 2, 3, 4, 5  = 3.75 -> .25 hours left
-
-    Tu Duy Tinh Toan (**): 5 hours
-        t4: tiet 4, 5  = 1.5 -> 3.5 hours left 
-        t3: toi 5h -> 6h30  = 1.5 -> 2 hours left 
-        t5: toi 5h -> 6h30  = 1.5 -> .5 hours left 
-        cn: tiet 2 -> .45         -> 0 hours left 
-        
-    Phuong Phap Lap Trinh (**): 5 hours
-        t6: toi 5h -> 6h30  = 1.5 -> 3.5 hours left 
-        t7: toi 5h -> 6h30  = 1.5 -> 2 hours left 
-        cn: toi 5h -> 6h30  = 1.5 -> .5 hours left 
-        t7: tiet 1 = .45p -> 0 hours left
-
-    Do Hoa (**): 5 hours
-        t3: tiet 1, 4, 5  = 2.25 -> 2.75 hours left 
-        t3: toi 5h -> 6h30  = 1.5 -> 1.25 hours left 
-        t2: toi 5h -> 6h30  = 1.5 -> 0 hours left 
-
-    Machine Learning (*): 2 hours
-        t2: tiet 3, 4, 5  = 2.25 -> 0 hours left
-
-    Do An Chuyen Nganh (*): 4 hours (optional)
-        cn: toi: 8h -> 12h  = 4 -> 0 hours left 
-*/
-
-
+// red green blue orange yellow 
 // TODO: hoc o truong first 
-/* let schedule = [ */
-/*     { */
-/*         name: "",  */
-/**/
-/*         startDate: "", // start hoc ki - global start */
-/*         endDate: "",   // end hoc ki - global end  */
-/* // */
-/*         startTime: "",  */
-/*         endTime: "",  */
-/**/
-/*         weekday: "", //t2, t3, t4, t5 */
-/**/
-/*         gap: "", */
-/*     }, */
-/* ];   */
+let schedule = [
+    {
+        name: "Lý thuyết: Cơ chế hoạt động của mã độc", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+        startTime: "08:15:00", 
+        endTime: "09:45:00", 
+        weekday: 3, 
+        gap: 1, 
+        description: "C212 (CLC) -  NT230.O21.ATCL - VN", 
+        color: COLORS.RED, 
+    }, 
+    {
+        name: "Thực hành: Cơ chế hoạt động của mã độc", 
+        startDate: "4/3/2024", // NOTE: this is monday
+        endDate: "1/6/2024", 
+        startTime: "13:00:00", 
+        endTime: "17:00:00", 
+        weekday: 3, 
+        gap: 2, 
+        description: "B2.18 (PM) - NT230.O21.ATCL.1 - VN(HT1)", 
+        color: COLORS.RED, 
+    }, 
+    {
+        name: "Lý thuyết: Đồ họa máy tính", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+        startTime: "07:30:00", 
+        endTime: "09:45:00", 
+        weekday: 4, 
+        gap: 1, 
+        description: "B1.10 - CS105.O21.KHCL - VN", 
+        color: COLORS.GREEN, 
+    }, 
+    {
+        name: "Thực hành: Bảo mật web và ứng dụng", 
+        startDate: "4/3/2024", // NOTE: this is monday
+        endDate: "1/6/2024", 
+        startTime: "07:30:00", 
+        endTime: "11:30:00", 
+        weekday: 5, 
+        gap: 2, 
+        description: "P B4.06 (PM) - NT213.O22.ATCL.1 - VN(HT1)", 
+        color: COLORS.BLUE, 
+    }, 
+    {
+        name: "Lý thuyết: Bảo mật web và ứng dụng", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+        startTime: "08:15:00", 
+        endTime: "09:45:00", 
+        weekday: 6, 
+        gap: 1, 
+        description: "C301 (CLC) - NT213.O22.ATCL - VN", 
+        color: COLORS.BLUE, 
+    }, 
+    {
+        name: "Lý thuyết: Tư duy tính toán", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+        startTime: "13:00:00", 
+        endTime: "15:15:00", 
+        weekday: 6, 
+        gap: 1, 
+        description: "C214 (CLC) - CS117.O21 - VN", 
+        color: COLORS.ORANGE, 
+    }, 
+    {
+        name: "Thực hành: Các phương pháp lập trình", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "15/6/2024", 
+        startTime: "07:30:00", 
+        endTime: "10:45:00", 
+        weekday: 7, 
+        gap: 2, 
+        description: "B4.10 - SE334.O21.PMCL - VN", 
+        color: COLORS.YELLOW, 
+    }, 
+];  
 
 
 // NOTE: this function only works correctly is the startdate is monday
@@ -160,49 +188,30 @@ function createEvent(event, calendar) {
     }
 }
 
-const COLORS = {
-    BLUE : CalendarApp.EventColor.BLUE, 	
-    BROWN : CalendarApp.EventColor.BROWN, 
-    CHARCOAL: CalendarApp.EventColor.CHARCOAL, 
-    CHESTNUT: CalendarApp.EventColor.CHESTNUT, 
-    GRAY: CalendarApp.EventColor.GRAY, 
-    GREEN:CalendarApp.EventColor.GREEN, 
-    INDIGO: CalendarApp.EventColor.INDIGO, 
-    LIME: CalendarApp.EventColor.LIME, 
-    MUSTARD	: CalendarApp.EventColor.MUSTARD, 
-    OLIVE: CalendarApp.EventColor.OLIVE, 
-    ORANGE: CalendarApp.EventColor.ORANGE, 
-    PINK: CalendarApp.EventColor.PINK, 
-    PLUM: CalendarApp.EventColor.PLUM, 
-    PURPLE	: CalendarApp.EventColor.PURPLE, 
-    RED	: CalendarApp.EventColor.RED, 
-    RED_ORANGE	: CalendarApp.EventColor.RED_ORANGE, 
-    SEA_BLUE: CalendarApp.EventColor.SEA_BLUE, 
-    SLATE: CalendarApp.EventColor.SLATE, 
-    TEAL: CalendarApp.EventColor.TEAL, 
-    YELLOW: CalendarApp.EventColor.YELLOW, 
-    TURQOISE: CalendarApp.EventColor.TURQOISE, 
-}; 
 
-
-const calendarID = "cdfe30a8b78a68585a29715496615866fc5b2373752a5cdda890b1c4db44b909@group.calendar.google.com";
+const calendarID = "98d078855a11dc4054a07514a203d2146517c06fefbbe8906c9e6f7ac40b032d@group.calendar.google.com";
 function calendarAutomation() {
     const calendar = CalendarApp.getCalendarById(calendarID);
-    //calender.createEvent();
-    const event = {
-        name: "fucking test", 
-        startDate: "19/2/2024", // NOTE: this is monday
-        endDate: "1/6/2024", 
-        startTime: "05:00:00", 
-        endTime: "22:00:00", 
-        weekday: 3, 
-        gap: 2, 
-        description: "this is a fucking test", 
-        color: COLORS.ORANGE, 
-    };
+    const correctedSchedule = modifiedSchedule(schedule);
 
+    //calender.createEvent();
+    /* const event = { */
+    /*     name: "fucking test",  */
+    /*     startDate: "19/2/2024", // NOTE: this is monday */
+    /*     endDate: "1/6/2024",  */
+    /*     startTime: "05:00:00",  */
+    /*     endTime: "22:00:00",  */
+    /*     weekday: 3,  */
+    /*     gap: 2,  */
+    /*     description: "this is a fucking test",  */
+    /*     color: COLORS.ORANGE,  */
+    /* }; */
+    /**/
     //console.log(adjustAsyncWeekdateStateDate(event));
     //console.log(modifiedSchedule([event]));
 
-    createEvent(adjustAsyncWeekdateStateDate(event), calendar);
+    for(let i = 0; i < correctedSchedule.length; i++) {
+        const event = correctedSchedule[i];
+        createEvent(adjustAsyncWeekdateStateDate(event), calendar);
+    }
 }

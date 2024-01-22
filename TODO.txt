@@ -1,5 +1,126 @@
 CURRENT: 
-    + Google Script: Schedule format (2h) [] @Current 
+    + Google Script: Hoc tap Schedule (2h) [] @Current 
+/*
+ * NOTE: Merge hoc o truong and tu hoc
+ *      need to have alternating between tu hoc and hoc o truong (should not overlap)
+ *
+
+Hoc o truong: 
+    NT230.O21.ATCL - VN
+    Sĩ số: 26
+    Cơ chế hoạt động của mã độc
+    P C212 (CLC)
+    BĐ:19/02/24
+    KT:08/06/24
+    Time: 8:15 - 9:45
+    T: 3
+
+    NT230.O21.ATCL.1 - VN(HT1) - (Cách 2 tuần)
+    Sĩ số: 26
+    Cơ chế hoạt động của mã độc
+    P B2.18 (PM)
+    BĐ:04/03/24
+    KT:01/06/24
+    Time: 13:00 - 17:00
+    T: 3
+
+    Đồ họa máy tính
+    BĐ:19/02/24
+    KT:08/06/24
+    CS105.O21.KHCL - VN
+    Sĩ số: 49
+    P B1.10
+    Time: 7:30 - 9:45
+    T: 4 
+
+    NT213.O22.ATCL.1 - VN(HT1) - (Cách 2 tuần)
+    BĐ:04/03/24
+    KT:01/06/24
+    Sĩ số: 25
+    Bảo mật web và ứng dụng
+    P B4.06 (PM)
+    Time: 7:30 - 11:30
+    T: 5 
+
+    NT213.O22.ATCL - VN
+    Sĩ số: 50
+    Bảo mật web và ứng dụng
+    P C301 (CLC)
+    BĐ:19/02/24
+    KT:08/06/24
+    Time: 8:15 - 9:45
+    T: 6
+
+    CS117.O21 - VN
+    Sĩ số: 100
+    Tư duy tính toán
+    P C214 (CLC)
+    BĐ:19/02/24
+    KT:08/06/24
+    Time: 13:00 - 15:15
+    T: 6
+
+    SE334.O21.PMCL - VN - (Cách 2 tuần)
+    Sĩ số: 50
+    Các phương pháp lập trình
+    P B4.10
+    BĐ:19/02/24
+    KT:15/06/24
+    Time: 7:30 - 10:45
+    T: 7
+
+Tu hoc
+    Bao Mat Web (****): 23 hours
+        t2: tiet 1, 2, 3, 4, 5  = 3.75 -> 16.25 hours left
+        t4: tiet 6, 7, 8, 9 = 3 -> 13.25 hours left 
+        t7: tiet 6, 7, 8, 9 = 3 -> 10.25 hours left 
+        t3: toi: 8h -> 12h  = 4 -> 6.25 hours left 
+        t6: tiet 1, 4, 5  = 4 hours left 
+        t6: toi: 8h -> 12h  = 0 hours left 
+
+        t5: tiet 1, 2, 3, 4, 5  = 3.75 -> 0 hours left
+
+    Ma Doc (***): 13 hours
+        t2: tiet 6, 7, 8, 9 = 3 -> 7 hours left 
+        t5: tiet 6, 7, 8, 9 = 3 -> 4 hours left 
+        t7: toi: 8h -> 12h  = 4 -> 0 hours left 
+
+        t3: tiet 6, 7, 8, 9 = 3 -> 0 hours left 
+
+    Backend Web Project (***):  19 hours
+        Project 1: 7 hours (focus on good CRUD and RestAPI)
+        Project 2: 8 hours (focus on security, also with good CRUD and RestAPI)
+
+        t3: toi: 8h -> 12h  = 4 -> 11 hours left 
+        t4: toi: 8h -> 12h  = 4 -> 7 hours left 
+        t5: toi: 8h -> 12h  = 4 -> 3 hours left 
+        cn: tiet 6, 7, 8, 9 = 3 -> 0 hours left 
+        
+        t7: tiet 1, 2, 3, 4, 5  = 3.75 -> .25 hours left
+
+    Tu Duy Tinh Toan (**): 5 hours
+        t4: tiet 4, 5  = 1.5 -> 3.5 hours left 
+        t3: toi 5h -> 6h30  = 1.5 -> 2 hours left 
+        t5: toi 5h -> 6h30  = 1.5 -> .5 hours left 
+        cn: tiet 2 -> .45         -> 0 hours left 
+        
+    Phuong Phap Lap Trinh (**): 5 hours
+        t6: toi 5h -> 6h30  = 1.5 -> 3.5 hours left 
+        t7: toi 5h -> 6h30  = 1.5 -> 2 hours left 
+        cn: toi 5h -> 6h30  = 1.5 -> .5 hours left 
+        t7: tiet 1 = .45p -> 0 hours left
+
+    Do Hoa (**): 5 hours
+        t3: tiet 1, 4, 5  = 2.25 -> 2.75 hours left 
+        t3: toi 5h -> 6h30  = 1.5 -> 1.25 hours left 
+        t2: toi 5h -> 6h30  = 1.5 -> 0 hours left 
+
+    Machine Learning (*): 2 hours
+        t2: tiet 3, 4, 5  = 2.25 -> 0 hours left
+
+    Do An Chuyen Nganh (*): 4 hours (optional)
+        cn: toi: 8h -> 12h  = 4 -> 0 hours left 
+*/
 
 TODO: 
     need basic CRUD features (4h) []
