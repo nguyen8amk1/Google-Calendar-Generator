@@ -1,6 +1,6 @@
 CURRENT: 
-    + Google Script: Create event (2h) [] @Current 
-    + Google Script: Create Recurring event (2h) [] 
+    + Google Script: Schedule format (2h) [] @Current 
+    + Google Script: Async weekday and startdate handling (2h) []
 
 TODO: 
 
@@ -24,3 +24,5 @@ TODO:
     **HOPEfully this project could be done in a single day:  
 
 DONE: 
+    + Google Script: Create event (2h) [X] 
+    + Google Script: Create Recurring event (2h) [X] 
