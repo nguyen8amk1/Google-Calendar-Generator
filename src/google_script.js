@@ -87,25 +87,17 @@ function adjustAsyncWeekdateStateDate(event) {
     const year = parseInt(dateArray[2], 10);
 
     const newEvent = {
-        name: event.name, 
+        ...event, 
         startDate: `${newDate}/${month}/${year}`, 
-        endDate: event.endDate, 
-        startTime: event.startTime, 
-        endTime: event.endTime, 
-        gap: event.gap, 
     };
 
     return newEvent;
 }
 
 const modifiedSchedule = (schedule) => {
-    // TODO: @Current 
-    // input: startdate, weekday
-    // output: new startdate
     const newArray = schedule.map(a => ({...a}));
 
     for(let i = 0; i < schedule.length; i++) {
-        //schedule[i] = adjustAsyncWeekdateStateDate(schedule[i]);
         newArray[i] = adjustAsyncWeekdateStateDate(schedule[i]);
     }
 
@@ -159,11 +151,39 @@ function createEvent(event, calendar) {
 
     while(currentstart <= enddate) {
         console.log(currentstart, currentend);
-        calendar.createEvent(name, currentstart, currentend);
+        calendar.createEvent(name, currentstart, currentend)
+        .setDescription(validEvent.description)
+        .setColor(validEvent.color)
+        ;
         currentstart = nextOccuringDate(new Date(currentstart), gap);
         currentend = nextOccuringDate(new Date(currentend), gap);
     }
 }
+
+const COLORS = {
+    BLUE : CalendarApp.EventColor.BLUE, 	
+    BROWN : CalendarApp.EventColor.BROWN, 
+    CHARCOAL: CalendarApp.EventColor.CHARCOAL, 
+    CHESTNUT: CalendarApp.EventColor.CHESTNUT, 
+    GRAY: CalendarApp.EventColor.GRAY, 
+    GREEN:CalendarApp.EventColor.GREEN, 
+    INDIGO: CalendarApp.EventColor.INDIGO, 
+    LIME: CalendarApp.EventColor.LIME, 
+    MUSTARD	: CalendarApp.EventColor.MUSTARD, 
+    OLIVE: CalendarApp.EventColor.OLIVE, 
+    ORANGE: CalendarApp.EventColor.ORANGE, 
+    PINK: CalendarApp.EventColor.PINK, 
+    PLUM: CalendarApp.EventColor.PLUM, 
+    PURPLE	: CalendarApp.EventColor.PURPLE, 
+    RED	: CalendarApp.EventColor.RED, 
+    RED_ORANGE	: CalendarApp.EventColor.RED_ORANGE, 
+    SEA_BLUE: CalendarApp.EventColor.SEA_BLUE, 
+    SLATE: CalendarApp.EventColor.SLATE, 
+    TEAL: CalendarApp.EventColor.TEAL, 
+    YELLOW: CalendarApp.EventColor.YELLOW, 
+    TURQOISE: CalendarApp.EventColor.TURQOISE, 
+}; 
+
 
 const calendarID = "cdfe30a8b78a68585a29715496615866fc5b2373752a5cdda890b1c4db44b909@group.calendar.google.com";
 function calendarAutomation() {
@@ -173,14 +193,16 @@ function calendarAutomation() {
         name: "fucking test", 
         startDate: "19/2/2024", // NOTE: this is monday
         endDate: "1/6/2024", 
-        startTime: "07:00:00", 
-        endTime: "20:00:00", 
-        weekday: 2, 
+        startTime: "05:00:00", 
+        endTime: "22:00:00", 
+        weekday: 3, 
         gap: 2, 
+        description: "this is a fucking test", 
+        color: COLORS.ORANGE, 
     };
 
     //console.log(adjustAsyncWeekdateStateDate(event));
-    console.log(modifiedSchedule([event]));
+    //console.log(modifiedSchedule([event]));
 
-    //createEvent(event, calendar);
+    createEvent(adjustAsyncWeekdateStateDate(event), calendar);
 }
