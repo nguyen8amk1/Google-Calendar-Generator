@@ -1,0 +1,26 @@
+CURRENT: 
+    + Google Script: Create event (2h) [] @Current 
+    + Google Script: Create Recurring event (2h) [] 
+
+TODO: 
+
+    need basic CRUD features (4h) []
+        + Create a calendar 
+        + Read a calendar
+        + Update a calendar
+        + Delete a calendar
+
+        + Create an event 
+        + Read an event 
+        + Update an event 
+        + Delete an event
+            
+
+    decide the calendar text format (1h) []
+        -> use JSON
+
+    build it as an CLI (2h) []
+
+    **HOPEfully this project could be done in a single day:  
+
+DONE: 
