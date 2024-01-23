@@ -278,7 +278,7 @@ const backendproject = [
 
         startTime: "20:00:00", 
         endTime: "23:30:00", 
-        weekday: 3, 
+        weekday: 2, 
 
         gap: 1, 
         description: "", 
@@ -417,13 +417,14 @@ const pplaptrinh = [
         description: "", 
         color: COLORS.YELLOW, 
     }, 
+
     {
         name: "Tự học: Các phương pháp lập trình", 
         startDate: "19/2/2024", // NOTE: this is monday
         endDate: "15/6/2024", 
 
-        startTime: "17:00:00", 
-        endTime: "18:30:00", 
+        startTime: "07:30:00", 
+        endTime: "8:15:00", 
 
         weekday: 8, 
         gap: 1, 
@@ -435,10 +436,10 @@ const pplaptrinh = [
         startDate: "19/2/2024", // NOTE: this is monday
         endDate: "15/6/2024", 
 
-        startTime: "07:30:00", 
-        endTime: "08:15:00", 
+        startTime: "10:00:00", 
+        endTime: "10:45:00", 
 
-        weekday: 7, 
+        weekday: 8, 
         gap: 1, 
         description: "", 
         color: COLORS.YELLOW, 
@@ -481,7 +482,7 @@ const dohoa = [
         startTime: "17:00:00", 
         endTime: "18:30:00", 
 
-        weekday: 3, 
+        weekday: 4, 
         gap: 1, 
         description: "", 
         color: COLORS.GREEN, 
@@ -508,10 +509,10 @@ const machinelearning = [
         startDate: "19/2/2024", // NOTE: this is monday
         endDate: "8/6/2024", 
 
-        startTime: "09:00:00", 
-        endTime: "11:30:00", 
+        startTime: "17:00:00", 
+        endTime: "18:30:00", 
 
-        weekday: 2, 
+        weekday: 8, 
         gap: 1, 
         description: "", 
         color: COLORS.MAUVE, 
@@ -715,7 +716,7 @@ function createEvent(event, calendar) {
 }
 
 
-const calendarID = "dfcdfa4f573afe373361bc0dca21cba0752eeb1db1012fb13a3d566f70345b2c@group.calendar.google.com";
+const calendarID = "4966427f425ead1e305757d26b0b035b67fff6e26fd9991a3ff8671fca0526cf@group.calendar.google.com";
 
 function calendarAutomation() {
     const calendar = CalendarApp.getCalendarById(calendarID);
