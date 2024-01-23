@@ -9,24 +9,6 @@ CURRENT:
  *
 
 Tu hoc
-    Ma Doc (***): 13 hours
-        t2: tiet 6, 7, 8, 9 = 3 -> 7 hours left 
-        t5: tiet 6, 7, 8, 9 = 3 -> 4 hours left 
-        t7: toi: 8h -> 12h  = 4 -> 0 hours left 
-
-        t3: tiet 6, 7, 8, 9 = 3 -> 0 hours left 
-
-    Backend Web Project (***):  19 hours
-        Project 1: 7 hours (focus on good CRUD and RestAPI)
-        Project 2: 8 hours (focus on security, also with good CRUD and RestAPI)
-
-        t3: toi: 8h -> 12h  = 4 -> 11 hours left 
-        t4: toi: 8h -> 12h  = 4 -> 7 hours left 
-        t5: toi: 8h -> 12h  = 4 -> 3 hours left 
-        cn: tiet 6, 7, 8, 9 = 3 -> 0 hours left 
-        
-        t7: tiet 1, 2, 3, 4, 5  = 3.75 -> .25 hours left
-
     Tu Duy Tinh Toan (**): 5 hours
         t4: tiet 4, 5  = 1.5 -> 3.5 hours left 
         t3: toi 5h -> 6h30  = 1.5 -> 2 hours left 

@@ -1,28 +1,21 @@
 class CalendarEventGenerator { 
-    // TODO: encapsulate everything in this class
+    // TODO: encapsulate everything in this class 
+    constructor() { 
+    }
 }; 
+
 const COLORS = {
     BLUE : CalendarApp.EventColor.BLUE, 	
-    BROWN : CalendarApp.EventColor.BROWN, 
-    CHARCOAL: CalendarApp.EventColor.CHARCOAL, 
-    CHESTNUT: CalendarApp.EventColor.CHESTNUT, 
     GRAY: CalendarApp.EventColor.GRAY, 
     GREEN:CalendarApp.EventColor.GREEN, 
-    INDIGO: CalendarApp.EventColor.INDIGO, 
-    LIME: CalendarApp.EventColor.LIME, 
-    MUSTARD	: CalendarApp.EventColor.MUSTARD, 
-    OLIVE: CalendarApp.EventColor.OLIVE, 
     ORANGE: CalendarApp.EventColor.ORANGE, 
-    PINK: CalendarApp.EventColor.PINK, 
-    PLUM: CalendarApp.EventColor.PLUM, 
-    PURPLE	: CalendarApp.EventColor.PURPLE, 
     RED	: CalendarApp.EventColor.RED, 
-    RED_ORANGE	: CalendarApp.EventColor.RED_ORANGE, 
-    SEA_BLUE: CalendarApp.EventColor.SEA_BLUE, 
-    SLATE: CalendarApp.EventColor.SLATE, 
-    TEAL: CalendarApp.EventColor.TEAL, 
     YELLOW: CalendarApp.EventColor.YELLOW, 
-    TURQOISE: CalendarApp.EventColor.TURQOISE, 
+    CYAN: CalendarApp.EventColor.CYAN, 
+    MAUVE: CalendarApp.EventColor.MAUVE,
+    PALE_BLUE: CalendarApp.EventColor.PALE_BLUE,
+    PALE_GREEN: CalendarApp.EventColor.PALE_GREEN,
+    PALE_BLUE: CalendarApp.EventColor.PALE_RED,
 }; 
 
 // red green blue orange yellow 
@@ -201,6 +194,9 @@ const baomatweb = [
         color: COLORS.BLUE, 
     }, 
 
+
+
+    // NOTE: Collided
     {
         name: "Tự học: Bảo mật web và ứng dụng", 
         startDate: "19/2/2024", // NOTE: this is monday
@@ -277,10 +273,123 @@ const madoc = [
 
 const backendproject = [
     // TODO: 
+    {
+        name: "Tự học: Backend Web Project", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "20:00:00", 
+        endTime: "23:30:00", 
+        weekday: 3, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.CYAN, 
+    }, 
+    {
+        name: "Tự học: Backend Web Project", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "20:00:00", 
+        endTime: "23:30:00", 
+        weekday: 4, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.CYAN, 
+    }, 
+    {
+        name: "Tự học: Backend Web Project", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "20:00:00", 
+        endTime: "23:30:00", 
+        weekday: 5, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.CYAN, 
+    }, 
+    {
+        name: "Tự học: Backend Web Project", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "13:00:00", 
+        endTime: "16:15:00", 
+        weekday: 8, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.CYAN, 
+    }, 
+
+    // NOTE: collided 
+    {
+        name: "Tự học: Backend Web Project", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "07:30:00", 
+        endTime: "11:30:00", 
+        weekday: 7, 
+
+        gap: 2, 
+        description: "", 
+        color: COLORS.CYAN, 
+    }, 
 ];
 
 const tuduytinhtoan = [
-    // TODO: 
+    {
+        name: "Tự học: Tư duy tính toán", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+        startTime: "10:00:00", 
+        endTime: "11:30:00", 
+        weekday: 4, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.ORANGE, 
+    }, 
+    {
+        name: "Tự học: Tư duy tính toán", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+        startTime: "17:00:00", 
+        endTime: "18:30:00", 
+        weekday: 3, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.ORANGE, 
+    }, 
+    {
+        name: "Tự học: Tư duy tính toán", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+        startTime: "17:00:00", 
+        endTime: "18:30:00", 
+        weekday: 5, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.ORANGE, 
+    }, 
+
+    {
+        name: "Tự học: Tư duy tính toán", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "08:15:00", // NOTE: the time of this is confusing 
+        endTime: "11:30:00", 
+
+        weekday: 8, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.ORANGE, 
+    }, 
 ];
 
 const pplaptrinh = [
@@ -485,6 +594,8 @@ const calendarID = "845f1e0262965c82a7f71c35048b3ff8a63129c86b75a57a5b5838b166aa
 function calendarAutomation() {
     const calendar = CalendarApp.getCalendarById(calendarID);
     const correctedSchedule = modifiedSchedule(schedule);
+
+    Logger.log(COLORS);
 
     //calender.createEvent();
     /* const event = { */
