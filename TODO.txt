@@ -1,5 +1,9 @@
 CURRENT: 
-    + Google Script: Recurrent collision solver (1d) [] @Current
+    + Student's TKB html Parser  (4h) [] @Current
+        Input: tkb html file  
+        Output: schedule events array  
+
+    + Google Script: Recurrent collision solver (1d) [] @Next
         Still don't know how to make it works ?? 
 
 TODO: 
@@ -13,7 +17,6 @@ TODO:
         + Read an event 
         + Update an event 
         + Delete an event
-            
 
     decide the calendar text format (1h) []
         -> use JSON

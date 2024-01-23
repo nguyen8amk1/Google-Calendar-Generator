@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/nguyen8amk1/Google-Calendar-Generator/issues"
   },
-  "homepage": "https://github.com/nguyen8amk1/Google-Calendar-Generator#readme"
+  "homepage": "https://github.com/nguyen8amk1/Google-Calendar-Generator#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  }
 }
