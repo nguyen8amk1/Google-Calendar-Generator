@@ -1,6 +1,6 @@
 CURRENT: 
-    + Google Script: TKB tu hoc (4h) [] @Current
-    // TODO: still need to figure out some way to avoid collision between the thuc hanh and tu hoc @Next
+    // TODO: still need to figure out some way to avoid collision between the thuc hanh and tu hoc @Current
+    + Google Script: TKB tu hoc (4h) [] @Next
 
 /*
  * NOTE: Merge hoc o truong and tu hoc

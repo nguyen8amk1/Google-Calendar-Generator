@@ -255,6 +255,55 @@ const tuhoc = [
 schedule = [...schedule, ...tuhoc];
 
 
+// Input: event1, event2 
+// Output: modified event with adjusted date with no overlap 
+function avoidCollisionOfRecurrences(eventSrc, eventDest) {
+    // NOTE: (adjusted) eventSrc is the can't modified event (Lich truong)
+    //       (adjusted) eventDest is the can modified event (Lich tu hoc)
+
+    /*
+
+    event src: 
+    {
+        name: "Thực hành: Bảo mật web và ứng dụng", 
+        startDate: "7/3/2024", 
+        endDate: "1/6/2024", 
+        startTime: "07:30:00", 
+        endTime: "11:30:00", 
+        weekday: 5, 
+        gap: 2, 
+        description: "P B4.06 (PM) - NT213.O22.ATCL.1 - VN(HT1)", 
+        color: COLORS.BLUE, 
+    }, 
+
+    event dest: 
+    {
+        name: "Tự học: Bảo mật web và ứng dụng", 
+        startDate: "22/2024", 
+        endDate: "8/6/2024", 
+
+        startTime: "07:30:00", 
+        endTime: "11:30:00", 
+        weekday: 5, 
+
+        gap: 2, 
+        description: "", 
+        color: COLORS.BLUE, 
+    }, 
+     * */
+
+    // NOTE: should only start offsetting when actual collision occur 
+    // -> simulation, can't use any other way, maybe :v  
+    // -> start mapping all the recurrent of each event
+    // -> then offset the dest where needed 
+    // 2 cases: 
+    // 1. one dates is larger from the other -> separate the event into 2 different events: before collision, after collision
+    // 2. both are the same -> return the modified dest event 
+
+    // TODO: 
+
+}
+
 // NOTE: this function only works correctly is the startdate is monday
 function adjustAsyncWeekdateStateDate(event) {
     const weekday2offsetMapping = [0, 0, 0, 1, 2, 3, 4, 5, 6]; 
@@ -271,6 +320,7 @@ function adjustAsyncWeekdateStateDate(event) {
 
     return newEvent;
 }
+
 
 const modifiedSchedule = (schedule) => {
     const newArray = schedule.map(a => ({...a}));
