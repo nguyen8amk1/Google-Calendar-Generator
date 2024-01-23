@@ -1,26 +1,7 @@
 CURRENT: 
-    // TODO: still need to figure out some way to avoid collision between the thuc hanh and tu hoc @Current
-    + Google Script: TKB tu hoc (4h) [] @Next
-    + Google Script: Support "HOC DEN 12H DEM" [] 
-
-/*
- * NOTE: Merge hoc o truong and tu hoc
- *      need to have alternating between tu hoc and hoc o truong (should not overlap)
- *
-
-Tu hoc
-    Tu Duy Tinh Toan (**): 5 hours
-        t4: tiet 4, 5  = 1.5 -> 3.5 hours left 
-        t3: toi 5h -> 6h30  = 1.5 -> 2 hours left 
-        t5: toi 5h -> 6h30  = 1.5 -> .5 hours left 
-        cn: tiet 2 -> .45         -> 0 hours left 
-
-    Machine Learning (*): 2 hours
-        t2: tiet 3, 4, 5  = 2.25 -> 0 hours left
-
-    Do An Chuyen Nganh (*): 4 hours (optional)
-        cn: toi: 8h -> 12h  = 4 -> 0 hours left 
-*/
+    + Google Script: TKB tu hoc (4h) [] @Current 
+    + Google Script: Support "HOC DEN 12H DEM" (1h) [] @Next 
+    + Google Script: Recurrent collision solver (1d) [] @Later
 
 TODO: 
     need basic CRUD features (4h) []

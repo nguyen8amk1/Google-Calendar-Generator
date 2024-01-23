@@ -503,11 +503,35 @@ const dohoa = [
 ];
 
 const machinelearning = [
-    // TODO:
+    {
+        name: "Tự học: Machine Learning", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "09:00:00", 
+        endTime: "11:30:00", 
+
+        weekday: 2, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.MAUVE, 
+    }, 
 ];
 
 const doanchuyennganh = [
-    // TODO: 
+    {
+        name: "Tự học: Đồ án chuyên ngành", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "20:00:00", 
+        endTime: "23:30:00", 
+
+        weekday: 8, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.GRAY, 
+    }, 
 ];
 
 const tuhoc = [
@@ -691,7 +715,7 @@ function createEvent(event, calendar) {
 }
 
 
-const calendarID = "845f1e0262965c82a7f71c35048b3ff8a63129c86b75a57a5b5838b166aaa8b6@group.calendar.google.com";
+const calendarID = "dfcdfa4f573afe373361bc0dca21cba0752eeb1db1012fb13a3d566f70345b2c@group.calendar.google.com";
 
 function calendarAutomation() {
     const calendar = CalendarApp.getCalendarById(calendarID);
