@@ -1,3 +1,6 @@
+class CalendarEventGenerator { 
+    // TODO: encapsulate everything in this class
+}; 
 const COLORS = {
     BLUE : CalendarApp.EventColor.BLUE, 	
     BROWN : CalendarApp.EventColor.BROWN, 
@@ -215,6 +218,61 @@ const baomatweb = [
 
 const madoc = [
     // TODO: 
+    {
+        name: "Tự học: Cơ chế hoạt động của mã độc", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "13:00:00", 
+        endTime: "16:15:00", 
+        weekday: 2, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.RED, 
+    }, 
+    {
+        name: "Tự học: Cơ chế hoạt động của mã độc", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "13:00:00", 
+        endTime: "16:15:00", 
+        weekday: 5, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.RED, 
+    }, 
+    {
+        name: "Tự học: Cơ chế hoạt động của mã độc", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "20:00:00", 
+        endTime: "23:45:00", 
+        weekday: 7, 
+
+        gap: 1, 
+        description: "", 
+        color: COLORS.RED, 
+    }, 
+
+
+    // NOTE: collided 
+    {
+        name: "Tự học: Cơ chế hoạt động của mã độc", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "13:00:00", 
+        endTime: "16:15:00", 
+        weekday: 3, 
+
+        gap: 2, 
+        description: "", 
+        color: COLORS.RED, 
+    }, 
 ];
 
 const backendproject = [
@@ -263,7 +321,7 @@ function avoidCollisionOfRecurrences(eventSrc, eventDest) {
 
     /*
 
-    event src: 
+    modified event src: 
     {
         name: "Thực hành: Bảo mật web và ứng dụng", 
         startDate: "7/3/2024", 
@@ -276,7 +334,7 @@ function avoidCollisionOfRecurrences(eventSrc, eventDest) {
         color: COLORS.BLUE, 
     }, 
 
-    event dest: 
+    modified event dest: 
     {
         name: "Tự học: Bảo mật web và ứng dụng", 
         startDate: "22/2024", 
@@ -296,12 +354,16 @@ function avoidCollisionOfRecurrences(eventSrc, eventDest) {
     // -> simulation, can't use any other way, maybe :v  
     // -> start mapping all the recurrent of each event
     // -> then offset the dest where needed 
+    
     // 2 cases: 
-    // 1. one dates is larger from the other -> separate the event into 2 different events: before collision, after collision
+    // 1. one date is larger from the other -> separate the event into 2 different events: before collision, after collision
     // 2. both are the same -> return the modified dest event 
 
     // TODO: 
+    
+    let result; 
 
+    return result;
 }
 
 // NOTE: this function only works correctly is the startdate is monday

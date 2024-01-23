@@ -1,6 +1,7 @@
 CURRENT: 
     // TODO: still need to figure out some way to avoid collision between the thuc hanh and tu hoc @Current
     + Google Script: TKB tu hoc (4h) [] @Next
+    + Google Script: Support "HOC DEN 12H DEM" [] 
 
 /*
  * NOTE: Merge hoc o truong and tu hoc
@@ -8,16 +9,6 @@ CURRENT:
  *
 
 Tu hoc
-    Bao Mat Web (****): 23 hours
-        t2: tiet 1, 2, 3, 4, 5  = 3.75 -> 16.25 hours left
-        t4: tiet 6, 7, 8, 9 = 3 -> 13.25 hours left 
-        t7: tiet 6, 7, 8, 9 = 3 -> 10.25 hours left 
-        t3: toi: 8h -> 12h  = 4 -> 6.25 hours left 
-        t6: tiet 1, 4, 5  = 4 hours left 
-        t6: toi: 8h -> 12h  = 0 hours left 
-
-        t5: tiet 1, 2, 3, 4, 5  = 3.75 -> 0 hours left
-
     Ma Doc (***): 13 hours
         t2: tiet 6, 7, 8, 9 = 3 -> 7 hours left 
         t5: tiet 6, 7, 8, 9 = 3 -> 4 hours left 
