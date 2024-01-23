@@ -71,35 +71,25 @@ allTrs.each((index, element) => {
 
 //console.log(booleanTable);
 //console.log(tkb);
-//
-//
-//
 
-const something = () => {
+const fillBooleanTableAccordingToTKB = () => {
     for(let i = 0; i < booleanTable.length; i++) {
         let x = 0; 
         for(let j = 0; j < booleanTable[i].length; j++) {
-            // Maybe something wrong right here 
             x += booleanTable[i][j]; 
-            //console.log(x);
             const subject = tkb[i][x];
 
-            //process.stdout.write(x + " ");
-            //console.log(subject);
-
             if(subject && subject.good) {
+                subject.x = x;
                 fillFromTo(booleanTable, x-1, subject.ystart, subject.yend);
-                //console.log(booleanTable);
-                //console.log(x, subject);
             }
             
         }
-        //console.log();
     }
 }
 
-something();
-console.log(booleanTable);
+fillBooleanTableAccordingToTKB();
+console.log(booleanTable, tkb);
 
 //console.log(htmlSubjectsTable);
 
