@@ -88,7 +88,7 @@ let schedule = [
         color: COLORS.ORANGE, 
     }, 
     {
-        name: "Thực hành: Các phương pháp lập trình", 
+        name: "Lý thuyết: Các phương pháp lập trình", 
         startDate: "19/2/2024", // NOTE: this is monday
         endDate: "15/6/2024", 
         startTime: "07:30:00", 
@@ -213,7 +213,6 @@ const baomatweb = [
 ];
 
 const madoc = [
-    // TODO: 
     {
         name: "Tự học: Cơ chế hoạt động của mã độc", 
         startDate: "19/2/2024", // NOTE: this is monday
@@ -272,7 +271,6 @@ const madoc = [
 ];
 
 const backendproject = [
-    // TODO: 
     {
         name: "Tự học: Backend Web Project", 
         startDate: "19/2/2024", // NOTE: this is monday
@@ -383,7 +381,7 @@ const tuduytinhtoan = [
         endDate: "8/6/2024", 
 
         startTime: "08:15:00", // NOTE: the time of this is confusing 
-        endTime: "11:30:00", 
+        endTime: "09:30:00", 
 
         weekday: 8, 
         gap: 1, 
@@ -393,15 +391,119 @@ const tuduytinhtoan = [
 ];
 
 const pplaptrinh = [
-    // TODO: 
+    {
+        name: "Tự học: Các phương pháp lập trình", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "15/6/2024", 
+
+        startTime: "17:00:00", 
+        endTime: "18:30:00", 
+
+        weekday: 6, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.YELLOW, 
+    }, 
+    {
+        name: "Tự học: Các phương pháp lập trình", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "15/6/2024", 
+
+        startTime: "17:00:00", 
+        endTime: "18:30:00", 
+
+        weekday: 7, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.YELLOW, 
+    }, 
+    {
+        name: "Tự học: Các phương pháp lập trình", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "15/6/2024", 
+
+        startTime: "17:00:00", 
+        endTime: "18:30:00", 
+
+        weekday: 8, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.YELLOW, 
+    }, 
+    {
+        name: "Tự học: Các phương pháp lập trình", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "15/6/2024", 
+
+        startTime: "07:30:00", 
+        endTime: "08:15:00", 
+
+        weekday: 7, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.YELLOW, 
+    }, 
 ];
 
 const dohoa = [
-    // TODO: 
+    {
+        name: "Tự học: Đồ họa máy tính", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "07:30:00", 
+        endTime: "08:15:00", 
+
+        weekday: 3, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.GREEN, 
+    }, 
+    {
+        name: "Tự học: Đồ họa máy tính", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "10:00:00", 
+        endTime: "11:30:00", 
+
+        weekday: 3, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.GREEN, 
+    }, 
+
+    {
+        name: "Tự học: Đồ họa máy tính", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "17:00:00", 
+        endTime: "18:30:00", 
+
+        weekday: 3, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.GREEN, 
+    }, 
+
+    {
+        name: "Tự học: Đồ họa máy tính", 
+        startDate: "19/2/2024", // NOTE: this is monday
+        endDate: "8/6/2024", 
+
+        startTime: "17:00:00", 
+        endTime: "18:30:00", 
+
+        weekday: 2, 
+        gap: 1, 
+        description: "", 
+        color: COLORS.GREEN, 
+    }, 
 ];
 
 const machinelearning = [
-    // TODO: 
+    // TODO:
 ];
 
 const doanchuyennganh = [

@@ -14,17 +14,6 @@ Tu hoc
         t3: toi 5h -> 6h30  = 1.5 -> 2 hours left 
         t5: toi 5h -> 6h30  = 1.5 -> .5 hours left 
         cn: tiet 2 -> .45         -> 0 hours left 
-        
-    Phuong Phap Lap Trinh (**): 5 hours
-        t6: toi 5h -> 6h30  = 1.5 -> 3.5 hours left 
-        t7: toi 5h -> 6h30  = 1.5 -> 2 hours left 
-        cn: toi 5h -> 6h30  = 1.5 -> .5 hours left 
-        t7: tiet 1 = .45p -> 0 hours left
-
-    Do Hoa (**): 5 hours
-        t3: tiet 1, 4, 5  = 2.25 -> 2.75 hours left 
-        t3: toi 5h -> 6h30  = 1.5 -> 1.25 hours left 
-        t2: toi 5h -> 6h30  = 1.5 -> 0 hours left 
 
     Machine Learning (*): 2 hours
         t2: tiet 3, 4, 5  = 2.25 -> 0 hours left
