@@ -595,7 +595,6 @@ function avoidCollisionOfRecurrences(eventSrc, eventDest) {
     // 2. both are the same -> return the modified dest event 
 
     // TODO: 
-    
     let result; 
 
     return result;
@@ -718,7 +717,7 @@ function createEvent(event, calendar) {
     Logger.log("Added: " + name);
 }
 
-const calendarID = "4966427f425ead1e305757d26b0b035b67fff6e26fd9991a3ff8671fca0526cf@group.calendar.google.com";
+const calendarID = "024a54bc5b3c3ea8cea59f2a5b4630b68b30b22c2697d8df47866d7b285141eb@group.calendar.google.com";
 
 function calendarAutomation() {
     const calendar = CalendarApp.getCalendarById(calendarID);

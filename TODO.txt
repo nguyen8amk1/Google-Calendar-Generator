@@ -1,5 +1,6 @@
 CURRENT: 
     + Google Script: Recurrent collision solver (1d) [] @Current
+        Still don't know how to make it works ?? 
 
 TODO: 
     need basic CRUD features (4h) []
