@@ -25,17 +25,83 @@ function getWeekdaysMapping(htmlWeekdays) {
     return mapping;
 }
 
-const htmlWeekdays = $('#uit-tracuu-tkb-data > div > table.sticky-enabled.tableheader-processed.sticky-table > thead th');
+const selectorTKBTable = '#uit-tracuu-tkb-data > div > table.sticky-enabled.tableheader-processed.sticky-table';
 
+const htmlWeekdays = $(`${selectorTKBTable} > thead th`);
 //console.log(htmlWeekdays);
 
-const weekdays = getWeekdaysMapping(htmlWeekdays);
-console.log(weekdays);
+const weekdaysMapping = getWeekdaysMapping(htmlWeekdays);
+console.log(weekdaysMapping);
 
-// TODO: extract first test subject @Current
-const htmlSubjectsTable = $('#uit-tracuu-tkb-data > div > table.sticky-enabled.tableheader-processed.sticky-table > tbody').html();
+// TODO: extract all the subjects
+// input: 
+// output: a map, key = weekday 
+//
+// TODO: print all the "rowspan_data" of a tr with it's index @Current 
+
+const allTrs = $(`${selectorTKBTable} > tbody tr`);
+//console.log(allTrs[0]);
+
+const booleanTable = Array.from({ length: 12 }, () => Array(6).fill(1));
+//console.log(booleanTable);
+
+function fillFromTo(booleanTable, i, from, to) {
+    for(let j = from; j < to; j++) {
+        booleanTable[j][i] = 0; 
+    }
+}
+
+const tkb = [];
+allTrs.each((index, element) => {
+    const alltds = $(`${selectorTKBTable} > tbody > tr:nth-child(${index + 1}) > td`);
+    const newArray = [];
+    tkb.push(newArray);
+    alltds.each((tdindex, td) => {
+        const ystart = index;
+        const yend = ystart + parseInt($(td).attr("rowspan"));
+        newArray.push({
+            good: $(td).hasClass('rowspan_data') ? 1 : 0, 
+            ystart: ystart, 
+            yend: yend, 
+            name: $(td).text().trim(), 
+        });
+    });
+    //console.log();
+});
+
+//console.log(booleanTable);
+//console.log(tkb);
+//
+//
+//
+
+const something = () => {
+    for(let i = 0; i < booleanTable.length; i++) {
+        let x = 0; 
+        for(let j = 0; j < booleanTable[i].length; j++) {
+            // Maybe something wrong right here 
+            x += booleanTable[i][j]; 
+            //console.log(x);
+            const subject = tkb[i][x];
+
+            //process.stdout.write(x + " ");
+            //console.log(subject);
+
+            if(subject && subject.good) {
+                fillFromTo(booleanTable, x-1, subject.ystart, subject.yend);
+                //console.log(booleanTable);
+                //console.log(x, subject);
+            }
+            
+        }
+        //console.log();
+    }
+}
+
+something();
+console.log(booleanTable);
+
 //console.log(htmlSubjectsTable);
-
 
 
 /* const testSubject = { */
@@ -53,9 +119,6 @@ const htmlSubjectsTable = $('#uit-tracuu-tkb-data > div > table.sticky-enabled.t
 /**/
 /*     color: 0,  */
 /* }; */
-
-
-
 
 
 /*
