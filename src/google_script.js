@@ -19,7 +19,6 @@ const COLORS = {
 }; 
 
 // red green blue orange yellow 
-// TODO: hoc o truong first 
 let schedule = [
     {
         name: "Lý thuyết: Cơ chế hoạt động của mã độc", 
@@ -147,7 +146,7 @@ const baomatweb = [
         endDate: "8/6/2024", 
 
         startTime: "20:00:00", 
-        endTime: "23:50:00", 
+        endTime: "00:00:00", 
         weekday: 3, 
 
         gap: 1, 
@@ -186,7 +185,7 @@ const baomatweb = [
         endDate: "8/6/2024", 
 
         startTime: "20:00:00", 
-        endTime: "23:50:00", 
+        endTime: "00:00:00", 
         weekday: 6, 
 
         gap: 1, 
@@ -245,7 +244,7 @@ const madoc = [
         endDate: "8/6/2024", 
 
         startTime: "20:00:00", 
-        endTime: "23:45:00", 
+        endTime: "00:00:00", 
         weekday: 7, 
 
         gap: 1, 
@@ -277,7 +276,7 @@ const backendproject = [
         endDate: "8/6/2024", 
 
         startTime: "20:00:00", 
-        endTime: "23:30:00", 
+        endTime: "00:00:00", 
         weekday: 2, 
 
         gap: 1, 
@@ -290,7 +289,7 @@ const backendproject = [
         endDate: "8/6/2024", 
 
         startTime: "20:00:00", 
-        endTime: "23:30:00", 
+        endTime: "00:00:00", 
         weekday: 4, 
 
         gap: 1, 
@@ -303,7 +302,7 @@ const backendproject = [
         endDate: "8/6/2024", 
 
         startTime: "20:00:00", 
-        endTime: "23:30:00", 
+        endTime: "00:00:00", 
         weekday: 5, 
 
         gap: 1, 
@@ -526,7 +525,7 @@ const doanchuyennganh = [
         endDate: "8/6/2024", 
 
         startTime: "20:00:00", 
-        endTime: "23:30:00", 
+        endTime: "00:00:00", 
 
         weekday: 8, 
         gap: 1, 
@@ -662,6 +661,7 @@ const weekdaysMapping= [0, 0,
     CalendarApp.Weekday.SUNDAY,
 ];
 
+// TODO: clean this function, overlapping variables and very confusing 
 function createEvent(event, calendar) {
     const validEvent = event;
 
@@ -677,12 +677,17 @@ function createEvent(event, calendar) {
     let startdate = new Date(startdatestring);
     let enddate = new Date(enddatestring); 
 
-
     const startstring = generateDateString(validEvent.startDate, startime);
+
     const endstring = generateDateString(validEvent.startDate, endtime);
 
     let currentstart = new Date(startstring);
     let currentend = new Date(endstring); 
+
+    if(endtime === "00:00:00") {
+        //Logger.log("12 gio rui :v");
+        currentend.setDate(currentend.getDate() + 1);
+    }
 
     /* NOTE: legacy recurrent events code 
     while(currentstart <= enddate) {
@@ -696,11 +701,10 @@ function createEvent(event, calendar) {
     }
     */
 
-    //console.log(validEvent);
+    //Logger.log(validEvent);
 
     const weekdays = [weekdaysMapping[validEvent.weekday]];
 
-    // TODO: need to find a way to do occurence not only 1
     const eventSeries = calendar.createEventSeries(name,
         currentstart, 
         currentend,
@@ -712,9 +716,7 @@ function createEvent(event, calendar) {
         ;
 
     Logger.log("Added: " + name);
-
 }
-
 
 const calendarID = "4966427f425ead1e305757d26b0b035b67fff6e26fd9991a3ff8671fca0526cf@group.calendar.google.com";
 

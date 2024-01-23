@@ -1,6 +1,5 @@
 CURRENT: 
-    + Google Script: Support "HOC DEN 12H DEM" (1h) [] @Current  
-    + Google Script: Recurrent collision solver (1d) [] @Later
+    + Google Script: Recurrent collision solver (1d) [] @Current
 
 TODO: 
     need basic CRUD features (4h) []
@@ -23,6 +22,7 @@ TODO:
     **HOPEfully this project could be done in a single day:  
 
 DONE: 
+    + Google Script: Support "HOC DEN 12H DEM" (1h) [X] 
     + Google Script: TKB tu hoc (4h) [X] 
     + Google Script: Have a new mechanism for recurring date (2h) [X] 
     + Google Script: Hoc tap Schedule (2h) [X] 
