@@ -120,8 +120,9 @@ allTrs.each((index, element) => {
                 }
 
                 gap = extractGapFromMaMon(mamon.text());
-                description = `${parsedSubjectInfo[3]} - ${parsedSubjectInfo[1]}}`; // phong hoc 3 + si so 1
-                color = 11; //NOTE: for now it's fixed to 11 
+                description = `${parsedSubjectInfo[3]} - ${mamon.text()} - ${parsedSubjectInfo[1]}}`; // phong hoc 3 + si so 1
+
+                color = 11; //TODO: handle color mapping @Current 
 
                 good = 1; 
             }
@@ -173,34 +174,20 @@ const fillBooleanTableAccordingToTKB = () => {
 }
 
 fillBooleanTableAccordingToTKB();
-//console.log(booleanTable);
 
 const finalResults = [];
 for(let i = 0; i < tkb.length; i++) {
     for(let j = 0; j < tkb[i].length; j++) {
-        if(tkb[i][j].good) finalResults.push(tkb[i][j]);
+        if(tkb[i][j].good) { 
+            delete tkb[i][j].good; 
+            delete tkb[i][j].ystart; 
+            delete tkb[i][j].yend; 
+            finalResults.push(tkb[i][j]); 
+        } 
     }
 }
 
 console.log(finalResults);
-
-
-/* const testSubject = { */
-/*     name: , */
-/*     startDate: , */
-/*     endDate: , */
-/**/
-/*     startTime: , */
-/*     endTime: , */
-/**/
-/*     weekday: , */
-/*     gap: , */
-/**/
-/*     description: ,  */
-/**/
-/*     color: 0,  */
-/* }; */
-
 
 /*
     {
