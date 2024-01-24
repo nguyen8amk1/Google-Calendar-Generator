@@ -176,6 +176,15 @@ allTrs.each((index, element) => {
 //console.log(booleanTable);
 //console.log(tkb);
 
+/* const x2weekday = (x, booleanTable) => { */
+/*     // TODO: using the boolean table -> get the weekday */
+/*     for() {} */
+/**/
+/* };  */
+
+// FIX: this booleantable filling is still wrong, the x is not actually corresponse to the weekday @Current 
+    // -> can't use it as weekday, have to do some calculation 
+
 const fillBooleanTableAccordingToTKB = () => {
     for(let i = 0; i < booleanTable.length; i++) {
         let x = 0; 
@@ -184,7 +193,7 @@ const fillBooleanTableAccordingToTKB = () => {
             const subject = tkb[i][x];
 
             if(subject && subject.good) {
-                // FIX: the x is not directly corresponse to weekday :))  @Current 
+                // FIX: the x is not directly corresponse to weekday :))
                 subject.weekday = x + 1; 
                 fillFromTo(booleanTable, x-1, subject.ystart, subject.yend);
             }
@@ -194,6 +203,8 @@ const fillBooleanTableAccordingToTKB = () => {
 }
 
 fillBooleanTableAccordingToTKB();
+
+console.log(booleanTable);
 
 const finalResults = [];
 for(let i = 0; i < tkb.length; i++) {
@@ -207,7 +218,7 @@ for(let i = 0; i < tkb.length; i++) {
     }
 }
 
-console.log(finalResults);
+//console.log(finalResults);
 
 /*
     {
