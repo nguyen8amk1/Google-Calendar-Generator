@@ -59,12 +59,30 @@ function parseSubjectInformationFromHTML(htmlString) {
     return finalTextArray;
 }
 
+
+const SERIOUS_COLORS = [11, 6, 4, 5, 3, 7, 1, 9, 2, 10, 8];
+
+/* const SERIOUS_COLORS = { */
+/*     RED: 11, */
+/*     ORANGE: 6, */
+/*     PALE_RED: 4, */
+/*     YELLOW: 5, */
+/*     MAUVE: 3, */
+/*     CYAN: 7, */
+/*     PALE_BLUE: 1, */
+/*     BLUE: 9, */
+/*     PALE_GREEN: 2, */
+/*     GREEN: 10, */
+/*     GRAY: 8, */
+/* }; */
+
 const tkb = [];
 allTrs.each((index, element) => {
     const alltds = $(`${selectorTKBTable} > tbody > tr:nth-child(${index + 1}) > td`);
     const newArray = [];
     tkb.push(newArray);
 
+    let colorIndex = 0;
     alltds.each((tdindex, td) => {
         const ystart = index;
         const yend = ystart + parseInt($(td).attr("rowspan"));
@@ -122,9 +140,10 @@ allTrs.each((index, element) => {
                 gap = extractGapFromMaMon(mamon.text());
                 description = `${parsedSubjectInfo[3]} - ${mamon.text()} - ${parsedSubjectInfo[1]}}`; // phong hoc 3 + si so 1
 
-                color = 11; //TODO: handle color mapping @Current 
+                color = SERIOUS_COLORS[colorIndex]; 
 
                 good = 1; 
+                colorIndex++;
             }
 
         }
@@ -165,7 +184,8 @@ const fillBooleanTableAccordingToTKB = () => {
             const subject = tkb[i][x];
 
             if(subject && subject.good) {
-                subject.weekday = x + 1;
+                // FIX: the x is not directly corresponse to weekday :))  @Current 
+                subject.weekday = x + 1; 
                 fillFromTo(booleanTable, x-1, subject.ystart, subject.yend);
             }
             

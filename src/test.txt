@@ -19,7 +19,7 @@
     endTime: '11:30:00',
     gap: 2,
     description: 'P B4.06 (PM) - NT213.O22.ATCL.1 - VN(HT1) - (Cách 2 tuần) - Sĩ số: 23}',
-    color: 11,
+    color: 6,
     weekday: 5
   },
   {
@@ -30,7 +30,7 @@
     endTime: '10:45:00',
     gap: 2,
     description: 'P B4.10 - SE334.O21.PMCL - VN - (Cách 2 tuần) - Sĩ số: 50}',
-    color: 11,
+    color: 4,
     weekday: 7
   },
   {
@@ -52,7 +52,7 @@
     endTime: '09:45:00',
     gap: 1,
     description: 'P C301 (CLC) - NT213.O22.ATCL - VN - Sĩ số: 45}',
-    color: 11,
+    color: 6,
     weekday: 4
   },
   {
@@ -74,7 +74,7 @@
     endTime: '15:15:00',
     gap: 1,
     description: 'P C214 (CLC) - CS117.O21 - VN - Sĩ số: 100}',
-    color: 11,
+    color: 6,
     weekday: 6
   }
 ]

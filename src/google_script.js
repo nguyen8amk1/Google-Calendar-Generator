@@ -18,8 +18,89 @@ const COLORS = {
     PALE_BLUE: CalendarApp.EventColor.PALE_RED,
 }; 
 
+let schedule = 
+[
+  {
+    name: 'Đồ họa máy tính - CS105.O21.KHCL - VN',
+    startDate: '19/02/24',
+    endDate: '08/06/24',
+    startTime: '07:30:00',
+    endTime: '09:45:00',
+    gap: 1,
+    description: 'P B1.10 - CS105.O21.KHCL - VN - Sĩ số: 49}',
+    color: 11,
+    weekday: 4
+  },
+  {
+    name: 'Bảo mật web và ứng dụng - NT213.O22.ATCL.1 - VN(HT1) - (Cách 2 tuần)',
+    startDate: '04/03/24',
+    endDate: '01/06/24',
+    startTime: '07:30:00',
+    endTime: '11:30:00',
+    gap: 2,
+    description: 'P B4.06 (PM) - NT213.O22.ATCL.1 - VN(HT1) - (Cách 2 tuần) - Sĩ số: 23}',
+    color: 6,
+    weekday: 5
+  },
+  {
+    name: 'Các phương pháp lập trình - SE334.O21.PMCL - VN - (Cách 2 tuần)',
+    startDate: '19/02/24',
+    endDate: '15/06/24',
+    startTime: '07:30:00',
+    endTime: '10:45:00',
+    gap: 2,
+    description: 'P B4.10 - SE334.O21.PMCL - VN - (Cách 2 tuần) - Sĩ số: 50}',
+    color: 4,
+    weekday: 7
+  },
+  {
+    name: 'Cơ chế hoạt động của mã độc - NT230.O21.ATCL - VN',
+    startDate: '19/02/24',
+    endDate: '08/06/24',
+    startTime: '08:15:00',
+    endTime: '09:45:00',
+    gap: 1,
+    description: 'P C212 (CLC) - NT230.O21.ATCL - VN - Sĩ số: 26}',
+    color: 11,
+    weekday: 3
+  },
+  {
+    name: 'Bảo mật web và ứng dụng - NT213.O22.ATCL - VN',
+    startDate: '19/02/24',
+    endDate: '08/06/24',
+    startTime: '08:15:00',
+    endTime: '09:45:00',
+    gap: 1,
+    description: 'P C301 (CLC) - NT213.O22.ATCL - VN - Sĩ số: 45}',
+    color: 6,
+    weekday: 4
+  },
+  {
+    name: 'Cơ chế hoạt động của mã độc - NT230.O21.ATCL.1 - VN(HT1) - (Cách 2 tuần)',
+    startDate: '04/03/24',
+    endDate: '01/06/24',
+    startTime: '13:00:00',
+    endTime: '17:00:00',
+    gap: 2,
+    description: 'P B2.18 (PM) - NT230.O21.ATCL.1 - VN(HT1) - (Cách 2 tuần) - Sĩ số: 26}',
+    color: 11,
+    weekday: 3
+  },
+  {
+    name: 'Tư duy tính toán - CS117.O21 - VN',
+    startDate: '19/02/24',
+    endDate: '08/06/24',
+    startTime: '13:00:00',
+    endTime: '15:15:00',
+    gap: 1,
+    description: 'P C214 (CLC) - CS117.O21 - VN - Sĩ số: 100}',
+    color: 6,
+    weekday: 6
+  }
+]; 
+
 // red green blue orange yellow 
-let schedule = [
+let schedule1 = [
     {
         name: "Lý thuyết: Cơ chế hoạt động của mã độc", 
         startDate: "19/2/2024", // NOTE: this is monday
@@ -717,7 +798,7 @@ function createEvent(event, calendar) {
     Logger.log("Added: " + name);
 }
 
-const calendarID = "024a54bc5b3c3ea8cea59f2a5b4630b68b30b22c2697d8df47866d7b285141eb@group.calendar.google.com";
+const calendarID = "eba21ac96c3a8a9946fb32039c424c6a0398b23379ae0afddfdd47fae1bed945@group.calendar.google.com"; 
 
 function calendarAutomation() {
     const calendar = CalendarApp.getCalendarById(calendarID);
