@@ -3,6 +3,8 @@
     + Student's TKB html Parser  (4h) [] 
         Input: tkb html file  
         Output: schedule events array  
+
+    + Wrap things into a class
 */
 
 
@@ -37,6 +39,7 @@ console.log(weekdaysMapping);
 // input: 
 // output: a map, key = weekday 
 //
+    
 const allTrs = $(`${selectorTKBTable} > tbody tr`);
 //console.log(allTrs[0]);
 
@@ -105,7 +108,18 @@ allTrs.each((index, element) => {
                 startTime = tietStartTimeMapping[ystart]; // 
                 endTime = tietEndMapping[yend-1]; // 
 
-                gap = 1; // TODO: need to find a way to get the gap as well 
+                const extractGapFromMaMon = (inputString) => {
+                  const regex = /\(Cách (\d+) tuần\)/;
+                  const match = inputString.match(regex);
+
+                  if (match && match[1]) {
+                    return parseInt(match[1], 10);
+                  } else {
+                    return 1;
+                  }
+                }
+
+                gap = extractGapFromMaMon(mamon.text());
                 description = `${parsedSubjectInfo[3]} - ${parsedSubjectInfo[1]}}`; // phong hoc 3 + si so 1
                 color = 11; //NOTE: for now it's fixed to 11 
 
@@ -135,6 +149,7 @@ allTrs.each((index, element) => {
             color: color,
         });
     });
+
     //console.log();
 });
 
