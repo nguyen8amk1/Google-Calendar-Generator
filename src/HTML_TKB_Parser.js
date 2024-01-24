@@ -61,15 +61,12 @@ allTrs.each((index, element) => {
     const alltds = $(`${selectorTKBTable} > tbody > tr:nth-child(${index + 1}) > td`);
     const newArray = [];
     tkb.push(newArray);
+
     alltds.each((tdindex, td) => {
         const ystart = index;
         const yend = ystart + parseInt($(td).attr("rowspan"));
 
-        // TODO: extract all needed fields @Current
-        // $(td).text().trim()
-        //console.log($(td).html());
         const mamon = $(td).children("strong");
-        //const siso = brList[];
         
         let name = "";
         let startDate = "";
@@ -81,8 +78,8 @@ allTrs.each((index, element) => {
         let description = "";
         let color; 
 
+        let good = 0;
         if(mamon.length > 0)  {
-
             const htmlString = $(td).html();
             const parsedSubjectInfo = parseSubjectInformationFromHTML(htmlString); 
             
@@ -101,14 +98,18 @@ allTrs.each((index, element) => {
                 startDate = dateExtractFromString(parsedSubjectInfo[4]);
                 endDate = dateExtractFromString(parsedSubjectInfo[5]);
 
-                // TODO: these 3 will be obtained using other ways 
-                startTime = `` // 
-                endTime = ``; // 
-                weekday = ``; // 
+                // NOTE: tiet starting from 0, to exclusive n, meaning -1 from the real tiet 
+                const tietStartTimeMapping = ["07:30:00", "08:15:00", "09:00:00", "10:00:00", "10:45:00", "13:00:00", "13:45:00", "14:30:00", "15:30:00", "16:15:00"]; 
+                const tietEndMapping =       ["08:15:00", "09:00:00", "09:45:00", "10:45:00", "11:30:00", "13:45:00", "14:30:00", "15:15:00", "16:15:00", "17:00:00" ]; 
+
+                startTime = tietStartTimeMapping[ystart]; // 
+                endTime = tietEndMapping[yend-1]; // 
 
                 gap = 1; // TODO: need to find a way to get the gap as well 
                 description = `${parsedSubjectInfo[3]} - ${parsedSubjectInfo[1]}}`; // phong hoc 3 + si so 1
                 color = 11; //NOTE: for now it's fixed to 11 
+
+                good = 1; 
             }
 
         }
@@ -116,7 +117,8 @@ allTrs.each((index, element) => {
 
         newArray.push({
             // NOTE: these 3 information are for booleanTable calculation 
-            good: $(td).hasClass('rowspan_data') ? 1 : 0, 
+            good: good, 
+
             ystart: ystart, 
             yend: yend, 
 
@@ -127,7 +129,6 @@ allTrs.each((index, element) => {
 
             startTime: startTime,
             endTime: endTime,
-            weekday: weekday,
 
             gap: gap,
             description: description,
@@ -148,7 +149,7 @@ const fillBooleanTableAccordingToTKB = () => {
             const subject = tkb[i][x];
 
             if(subject && subject.good) {
-                subject.x = x;
+                subject.weekday = x + 1;
                 fillFromTo(booleanTable, x-1, subject.ystart, subject.yend);
             }
             
@@ -158,9 +159,15 @@ const fillBooleanTableAccordingToTKB = () => {
 
 fillBooleanTableAccordingToTKB();
 //console.log(booleanTable);
-console.log(tkb);
 
-//console.log(htmlSubjectsTable);
+const finalResults = [];
+for(let i = 0; i < tkb.length; i++) {
+    for(let j = 0; j < tkb[i].length; j++) {
+        if(tkb[i][j].good) finalResults.push(tkb[i][j]);
+    }
+}
+
+console.log(finalResults);
 
 
 /* const testSubject = { */
