@@ -1,6 +1,6 @@
 /*
  * TODO: 
-    + Student's TKB html Parser  (4h) [] @Current
+    + Student's TKB html Parser  (4h) [] 
         Input: tkb html file  
         Output: schedule events array  
 */
@@ -37,8 +37,6 @@ console.log(weekdaysMapping);
 // input: 
 // output: a map, key = weekday 
 //
-// TODO: print all the "rowspan_data" of a tr with it's index @Current 
-
 const allTrs = $(`${selectorTKBTable} > tbody tr`);
 //console.log(allTrs[0]);
 
@@ -51,6 +49,13 @@ function fillFromTo(booleanTable, i, from, to) {
     }
 }
 
+function parseSubjectInformationFromHTML(htmlString) {
+    const textArray = htmlString.split('<br>');
+    const cleanedTextArray = textArray.map(item => item.trim());
+    const finalTextArray = cleanedTextArray.filter(item => item !== '')
+    return finalTextArray;
+}
+
 const tkb = [];
 allTrs.each((index, element) => {
     const alltds = $(`${selectorTKBTable} > tbody > tr:nth-child(${index + 1}) > td`);
@@ -59,11 +64,74 @@ allTrs.each((index, element) => {
     alltds.each((tdindex, td) => {
         const ystart = index;
         const yend = ystart + parseInt($(td).attr("rowspan"));
+
+        // TODO: extract all needed fields @Current
+        // $(td).text().trim()
+        //console.log($(td).html());
+        const mamon = $(td).children("strong");
+        //const siso = brList[];
+        
+        let name = "";
+        let startDate = "";
+        let endDate = "";
+        let startTime = "";
+        let endTime = "";
+        let weekday = "";
+        let gap = "";
+        let description = "";
+        let color; 
+
+        if(mamon.length > 0)  {
+
+            const htmlString = $(td).html();
+            const parsedSubjectInfo = parseSubjectInformationFromHTML(htmlString); 
+            
+            if(parsedSubjectInfo.length == 6) {
+                //console.log(parsedSubjectInfo);
+                //console.log(mamon.text());
+                
+                name = `${parsedSubjectInfo[2]} - ${mamon.text()}`; // ten + mamon
+                
+                const dateExtractFromString = (inputString) => {
+                    const colonIndex = inputString.indexOf(':');
+                    const dateInformation = inputString.slice(colonIndex + 1);
+                    return dateInformation;
+                }
+
+                startDate = dateExtractFromString(parsedSubjectInfo[4]);
+                endDate = dateExtractFromString(parsedSubjectInfo[5]);
+
+                // TODO: these 3 will be obtained using other ways 
+                startTime = `` // 
+                endTime = ``; // 
+                weekday = ``; // 
+
+                gap = 1; // TODO: need to find a way to get the gap as well 
+                description = `${parsedSubjectInfo[3]} - ${parsedSubjectInfo[1]}}`; // phong hoc 3 + si so 1
+                color = 11; //NOTE: for now it's fixed to 11 
+            }
+
+        }
+
+
         newArray.push({
+            // NOTE: these 3 information are for booleanTable calculation 
             good: $(td).hasClass('rowspan_data') ? 1 : 0, 
             ystart: ystart, 
             yend: yend, 
-            name: $(td).text().trim(), 
+
+            // NOTE: the information from now on is not related to the upper one 
+            name: name,
+            startDate: startDate,
+            endDate: endDate,
+
+            startTime: startTime,
+            endTime: endTime,
+            weekday: weekday,
+
+            gap: gap,
+            description: description,
+            color: color,
         });
     });
     //console.log();
@@ -89,7 +157,8 @@ const fillBooleanTableAccordingToTKB = () => {
 }
 
 fillBooleanTableAccordingToTKB();
-console.log(booleanTable, tkb);
+//console.log(booleanTable);
+console.log(tkb);
 
 //console.log(htmlSubjectsTable);
 
