@@ -540,9 +540,45 @@ const tuhoc = [
 
 schedule = [...schedule, ...tuhoc];
 
+function generateDateString(date, time) {
+    const months = ["ERROR",  "January", "February", "March", "April", "May", "June", 
+               "July", "August", "September", "October", "November", "December" ];
+
+    var dateArray = date.split('/');
+
+    const newDate = parseInt(dateArray[0], 10); 
+    const month = months[parseInt(dateArray[1], 10)];
+    const year = parseInt(dateArray[2], 10);
+
+    return `${month} ${newDate}, ${year} ${time} GMT+0700`;
+}
+
+function ddmmyyyDatesComparison(date1String, op, date2String, startTime) {
+    const date1string = generateDateString(date1String, startTime);
+    const date2string = generateDateString(date2String, startTime);
+
+    let date1 = new Date(date1string);
+    let date2 = new Date(date2string); 
+
+    switch (op) {
+        case '<':
+            return date1 < date2;
+        case '<=':
+            return date1 <= date2;
+        case '>':
+            return date1 > date2;
+        case '>=':
+            return date1 >= date2;
+        case '==':
+            return date1.getTime() === date2.getTime();
+        case '!=':
+            return date1.getTime() !== date2.getTime();
+        default:
+            throw new Error('Invalid operator');
+    }
+}
+
 function checkIfTwoEventCollide(event1, event2) {
-    // TODO: 
-    
     //
     // * NOTE: with 2 unmodified event, assume that they are starting from the same date  
     // * -> we going to compare them based on their: 
@@ -571,10 +607,36 @@ function checkIfTwoEventCollide(event1, event2) {
         } else if(sameStartDate && !sameGap) {
             return true;
         } else if(!sameStartDate && sameGap) {
-            // different start date and same gap @Current 
-            return ;
+            // TODO: different start date and same gap @Current 
+            // the amount of precalculated dates based on the differences between their startDate
+            // calculation does on the one that start first 
+            //
+            let ealierEvent;
+            let laterEvent;
+            if(ddmmyyyDatesComparison(event1.startDate, ">", event2.startDate, event1.startTime)) {
+                ealierEvent = event1;
+                laterEvent = event2;
+            } else {
+                ealierEvent = event2;
+                laterEvent = event1;
+            }
+
+            
+            const currentDateString = generateDateString(ealierEvent.startDate, ealierEvent.startTime);
+            const laterDateString = generateDateString(laterEvent.startDate, ealierEvent.startTime);
+            let currentDate = new Date(currentDateString);
+            let laterDate = new Date(laterDateString); 
+
+            // Go til pass the later date 
+            while(currentDate < laterDate) {
+                currentDate = nextOccuringDate(currentDate, gap);
+            }
+
+            const collideWithLaterOne = currentDate.getTime() == laterDate.getTime();
+            return collideWithLaterOne; 
+
         } else {
-            // different start date and different gap @Next 
+            // TODO: different start date and different gap @Next 
             return ;
         }
     } 
@@ -583,6 +645,33 @@ function checkIfTwoEventCollide(event1, event2) {
     return false; 
 }
 
+const testevent1 = {
+    name: "Tự học: Machine Learning", 
+    startDate: "19/2/2024", // NOTE: this is monday
+    endDate: "8/6/2024", 
+
+    startTime: "17:00:00", 
+    endTime: "18:30:00", 
+
+    weekday: 8, 
+    gap: 1, 
+    description: "", 
+}; 
+
+const testevent2 = {
+    name: "Machine Learning", 
+    startDate: "19/2/2024", // NOTE: this is monday
+    endDate: "8/6/2024", 
+
+    startTime: "17:00:00", 
+    endTime: "18:30:00", 
+
+    weekday: 8, 
+    gap: 1, 
+    description: "", 
+}; 
+
+console.log(checkIfTwoEventCollide(testevent1, testevent2));
 
 // Input: event1, event2 
 // Output: unmodified event with adjusted date with no overlap 
@@ -677,18 +766,6 @@ function nextOccuringDate(startDate, gap) {
     return nextStartDate; 
 }
 
-function generateDateString(date, time) {
-    const months = ["ERROR",  "January", "February", "March", "April", "May", "June", 
-               "July", "August", "September", "October", "November", "December" ];
-
-    var dateArray = date.split('/');
-
-    const newDate = parseInt(dateArray[0], 10); 
-    const month = months[parseInt(dateArray[1], 10)];
-    const year = parseInt(dateArray[2], 10);
-
-    return `${month} ${newDate}, ${year} ${time} GMT+0700`;
-}
 
 
 const weekdaysMapping= [0, 0, 
