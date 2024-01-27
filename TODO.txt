@@ -3,7 +3,7 @@ CURRENT:
         Input: tkb html file  
         Output: schedule events array  
 
-    + Google Script: Recurrent collision solver (1d) [] @Next
+    + Google Script: Recurrent collision solver (1d) [] @Current 
         Still don't know how to make it works ?? 
 
 TODO: 

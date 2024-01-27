@@ -87,7 +87,7 @@ function generateTKB($, selectorTKBTable, allTrs) {
                     }
 
                     gap = extractGapFromMaMon(mamon.text());
-                    description = `${parsedSubjectInfo[3]} - ${mamon.text()} - ${parsedSubjectInfo[1]}}`; // phong hoc 3 + si so 1
+                    description = `${parsedSubjectInfo[3]} - ${mamon.text()} - ${parsedSubjectInfo[1]}`; // phong hoc 3 + si so 1
 
                     color = SERIOUS_COLORS[colorIndex]; 
 
