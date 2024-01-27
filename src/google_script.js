@@ -540,16 +540,65 @@ const tuhoc = [
 
 schedule = [...schedule, ...tuhoc];
 
+function checkIfTwoEventCollide(event1, event2) {
+    // TODO: 
+    
+    //
+    // * NOTE: with 2 unmodified event, assume that they are starting from the same date  
+    // * -> we going to compare them based on their: 
+    // *     + weekday  -> the x 
+    // *     + startTime  -> the y 
+    // *     if the both match -> they have a tendency to collide 
+        // *     -> we need to make sure THEY WILL COLLIDE 
+        //      Using gap 
+    const haveTendencyToCollide = event1.weekday   === event2.weekday &&
+                                  event1.startTime === event2.startTime;
+    if(haveTendencyToCollide) {
+        // 2 important factors to consider: 
+            // + startdate 
+            // + gap 
+        // -> 4 scenerios: 
+            //-> same startdate and gap 
+            //-> same startdate and different gap 
+            //-> different startdate and same gap 
+            //-> different startdate and different gap 
+        
+        const sameStartDate = event1.startDate == event2.startDate;
+        const sameGap = event1.gap == event2.gap;
+
+        if(sameStartDate && sameGap) {
+            return true; 
+        } else if(sameStartDate && !sameGap) {
+            return true;
+        } else if(!sameStartDate && sameGap) {
+            // different start date and same gap @Current 
+            return ;
+        } else {
+            // different start date and different gap @Next 
+            return ;
+        }
+    } 
+
+    // else not gonna collide 
+    return false; 
+}
+
 
 // Input: event1, event2 
-// Output: modified event with adjusted date with no overlap 
+// Output: unmodified event with adjusted date with no overlap 
 function avoidCollisionOfRecurrences(eventSrc, eventDest) {
     // NOTE: (adjusted) eventSrc is the can't modified event (Lich truong)
     //       (adjusted) eventDest is the can modified event (Lich tu hoc)
 
     /*
+     * NOTE: with 2 unmodified event 
+     * -> we going to compare them based on their: 
+     *     + weekday 
+     *     + startTime 
+     *     if the both match -> they have a tendency to collide 
+     *     -> we need to make sure THEY WILL COLLIDE 
 
-    modified event src: 
+    unmodified event src: 
     {
         name: "Thực hành: Bảo mật web và ứng dụng", 
         startDate: "7/3/2024", 
@@ -562,7 +611,7 @@ function avoidCollisionOfRecurrences(eventSrc, eventDest) {
         color: COLORS.BLUE, 
     }, 
 
-    modified event dest: 
+    unmodified event dest: 
     {
         name: "Tự học: Bảo mật web và ứng dụng", 
         startDate: "22/2024", 
@@ -587,7 +636,7 @@ function avoidCollisionOfRecurrences(eventSrc, eventDest) {
     // 1. one date is larger from the other -> separate the event into 2 different events: before collision, after collision
     // 2. both are the same -> return the modified dest event 
 
-    // TODO: @Current
+    // TODO: 
     let result; 
 
     return result;
