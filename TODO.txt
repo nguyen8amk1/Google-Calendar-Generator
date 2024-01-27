@@ -1,5 +1,5 @@
 CURRENT: 
-    + Student's TKB html Parser  (4h) [] @Current
+    + Student's TKB html Parser  (4h) [X] 
         Input: tkb html file  
         Output: schedule events array  
 

@@ -4,7 +4,6 @@ class CalendarEventGenerator {
     }
 };
 
-
 const COLORS = {
     BLUE : CalendarApp.EventColor.BLUE, 	
     GRAY: CalendarApp.EventColor.GRAY, 
@@ -99,87 +98,86 @@ let schedule =
   }
 ]; 
 
-// red green blue orange yellow 
-let schedule1 = [
-    {
-        name: "Lý thuyết: Cơ chế hoạt động của mã độc", 
-        startDate: "19/2/2024", // NOTE: this is monday
-        endDate: "8/6/2024", 
-        startTime: "08:15:00", 
-        endTime: "09:45:00", 
-        weekday: 3, 
-        gap: 1, 
-        description: "C212 (CLC) -  NT230.O21.ATCL - VN", 
-        color: COLORS.RED, 
-    }, 
-    {
-        name: "Thực hành: Cơ chế hoạt động của mã độc", 
-        startDate: "4/3/2024", // NOTE: this is monday
-        endDate: "1/6/2024", 
-        startTime: "13:00:00", 
-        endTime: "17:00:00", 
-        weekday: 3, 
-        gap: 2, 
-        description: "B2.18 (PM) - NT230.O21.ATCL.1 - VN(HT1)", 
-        color: COLORS.RED, 
-    }, 
-    {
-        name: "Lý thuyết: Đồ họa máy tính", 
-        startDate: "19/2/2024", // NOTE: this is monday
-        endDate: "8/6/2024", 
-        startTime: "07:30:00", 
-        endTime: "09:45:00", 
-        weekday: 4, 
-        gap: 1, 
-        description: "B1.10 - CS105.O21.KHCL - VN", 
-        color: COLORS.GREEN, 
-    }, 
-    {
-        name: "Thực hành: Bảo mật web và ứng dụng", 
-        startDate: "4/3/2024", // NOTE: this is monday
-        endDate: "1/6/2024", 
-        startTime: "07:30:00", 
-        endTime: "11:30:00", 
-        weekday: 5, 
-        gap: 2, 
-        description: "P B4.06 (PM) - NT213.O22.ATCL.1 - VN(HT1)", 
-        color: COLORS.BLUE, 
-    }, 
-    {
-        name: "Lý thuyết: Bảo mật web và ứng dụng", 
-        startDate: "19/2/2024", // NOTE: this is monday
-        endDate: "8/6/2024", 
-        startTime: "08:15:00", 
-        endTime: "09:45:00", 
-        weekday: 6, 
-        gap: 1, 
-        description: "C301 (CLC) - NT213.O22.ATCL - VN", 
-        color: COLORS.BLUE, 
-    }, 
-    {
-        name: "Lý thuyết: Tư duy tính toán", 
-        startDate: "19/2/2024", // NOTE: this is monday
-        endDate: "8/6/2024", 
-        startTime: "13:00:00", 
-        endTime: "15:15:00", 
-        weekday: 6, 
-        gap: 1, 
-        description: "C214 (CLC) - CS117.O21 - VN", 
-        color: COLORS.ORANGE, 
-    }, 
-    {
-        name: "Lý thuyết: Các phương pháp lập trình", 
-        startDate: "19/2/2024", // NOTE: this is monday
-        endDate: "15/6/2024", 
-        startTime: "07:30:00", 
-        endTime: "10:45:00", 
-        weekday: 7, 
-        gap: 2, 
-        description: "B4.10 - SE334.O21.PMCL - VN", 
-        color: COLORS.YELLOW, 
-    }, 
-
-];  
+// // red green blue orange yellow 
+// let schedule1 = [
+//     {
+//         name: "Lý thuyết: Cơ chế hoạt động của mã độc", 
+//         startDate: "19/2/2024", // NOTE: this is monday
+//         endDate: "8/6/2024", 
+//         startTime: "08:15:00", 
+//         endTime: "09:45:00", 
+//         weekday: 3, 
+//         gap: 1, 
+//         description: "C212 (CLC) -  NT230.O21.ATCL - VN", 
+//         color: COLORS.RED, 
+//     }, 
+//     {
+//         name: "Thực hành: Cơ chế hoạt động của mã độc", 
+//         startDate: "4/3/2024", // NOTE: this is monday
+//         endDate: "1/6/2024", 
+//         startTime: "13:00:00", 
+//         endTime: "17:00:00", 
+//         weekday: 3, 
+//         gap: 2, 
+//         description: "B2.18 (PM) - NT230.O21.ATCL.1 - VN(HT1)", 
+//         color: COLORS.RED, 
+//     }, 
+//     {
+//         name: "Lý thuyết: Đồ họa máy tính", 
+//         startDate: "19/2/2024", // NOTE: this is monday
+//         endDate: "8/6/2024", 
+//         startTime: "07:30:00", 
+//         endTime: "09:45:00", 
+//         weekday: 4, 
+//         gap: 1, 
+//         description: "B1.10 - CS105.O21.KHCL - VN", 
+//         color: COLORS.GREEN, 
+//     }, 
+//     {
+//         name: "Thực hành: Bảo mật web và ứng dụng", 
+//         startDate: "4/3/2024", // NOTE: this is monday
+//         endDate: "1/6/2024", 
+//         startTime: "07:30:00", 
+//         endTime: "11:30:00", 
+//         weekday: 5, 
+//         gap: 2, 
+//         description: "P B4.06 (PM) - NT213.O22.ATCL.1 - VN(HT1)", 
+//         color: COLORS.BLUE, 
+//     }, 
+//     {
+//         name: "Lý thuyết: Bảo mật web và ứng dụng", 
+//         startDate: "19/2/2024", // NOTE: this is monday
+//         endDate: "8/6/2024", 
+//         startTime: "08:15:00", 
+//         endTime: "09:45:00", 
+//         weekday: 6, 
+//         gap: 1, 
+//         description: "C301 (CLC) - NT213.O22.ATCL - VN", 
+//         color: COLORS.BLUE, 
+//     }, 
+//     {
+//         name: "Lý thuyết: Tư duy tính toán", 
+//         startDate: "19/2/2024", // NOTE: this is monday
+//         endDate: "8/6/2024", 
+//         startTime: "13:00:00", 
+//         endTime: "15:15:00", 
+//         weekday: 6, 
+//         gap: 1, 
+//         description: "C214 (CLC) - CS117.O21 - VN", 
+//         color: COLORS.ORANGE, 
+//     }, 
+//     {
+//         name: "Lý thuyết: Các phương pháp lập trình", 
+//         startDate: "19/2/2024", // NOTE: this is monday
+//         endDate: "15/6/2024", 
+//         startTime: "07:30:00", 
+//         endTime: "10:45:00", 
+//         weekday: 7, 
+//         gap: 2, 
+//         description: "B4.10 - SE334.O21.PMCL - VN", 
+//         color: COLORS.YELLOW, 
+//     }, 
+// ];  
 
 const baomatweb = [
     {
