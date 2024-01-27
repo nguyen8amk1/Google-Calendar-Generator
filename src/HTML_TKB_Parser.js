@@ -76,6 +76,10 @@ const SERIOUS_COLORS = [11, 6, 4, 5, 3, 7, 1, 9, 2, 10, 8];
 /*     GRAY: 8, */
 /* }; */
 
+// NOTE: tiet starting from 0, to exclusive n, meaning -1 from the real tiet 
+const tietStartTimeMapping = ["07:30:00", "08:15:00", "09:00:00", "10:00:00", "10:45:00", "13:00:00", "13:45:00", "14:30:00", "15:30:00", "16:15:00"]; 
+const tietEndMapping =       ["08:15:00", "09:00:00", "09:45:00", "10:45:00", "11:30:00", "13:45:00", "14:30:00", "15:15:00", "16:15:00", "17:00:00" ]; 
+
 const tkb = [];
 allTrs.each((index, element) => {
     const alltds = $(`${selectorTKBTable} > tbody > tr:nth-child(${index + 1}) > td`);
@@ -119,9 +123,6 @@ allTrs.each((index, element) => {
                 startDate = dateExtractFromString(parsedSubjectInfo[4]);
                 endDate = dateExtractFromString(parsedSubjectInfo[5]);
 
-                // NOTE: tiet starting from 0, to exclusive n, meaning -1 from the real tiet 
-                const tietStartTimeMapping = ["07:30:00", "08:15:00", "09:00:00", "10:00:00", "10:45:00", "13:00:00", "13:45:00", "14:30:00", "15:30:00", "16:15:00"]; 
-                const tietEndMapping =       ["08:15:00", "09:00:00", "09:45:00", "10:45:00", "11:30:00", "13:45:00", "14:30:00", "15:15:00", "16:15:00", "17:00:00" ]; 
 
                 startTime = tietStartTimeMapping[ystart]; // 
                 endTime = tietEndMapping[yend-1]; // 
@@ -176,35 +177,27 @@ allTrs.each((index, element) => {
 //console.log(booleanTable);
 //console.log(tkb);
 
-/* const x2weekday = (x, booleanTable) => { */
-/*     // TODO: using the boolean table -> get the weekday */
-/*     for() {} */
-/**/
-/* };  */
-
-// FIX: this booleantable filling is still wrong, the x is not actually corresponse to the weekday @Current 
-    // -> can't use it as weekday, have to do some calculation 
-
 const fillBooleanTableAccordingToTKB = () => {
     for(let i = 0; i < booleanTable.length; i++) {
         let x = 0; 
+        let previousX = -1; 
         for(let j = 0; j < booleanTable[i].length; j++) {
             x += booleanTable[i][j]; 
-            const subject = tkb[i][x];
+            if(x !== previousX) {
+                const subject = tkb[i][x];
 
-            if(subject && subject.good) {
-                // FIX: the x is not directly corresponse to weekday :))
-                subject.weekday = x + 1; 
-                fillFromTo(booleanTable, x-1, subject.ystart, subject.yend);
+                if(subject && subject.good) {
+                    subject.weekday = j + 2; 
+                    fillFromTo(booleanTable, j, subject.ystart, subject.yend);
+                }
+                previousX = x; 
             }
-            
         }
     }
 }
 
 fillBooleanTableAccordingToTKB();
-
-console.log(booleanTable);
+//console.log(booleanTable);
 
 const finalResults = [];
 for(let i = 0; i < tkb.length; i++) {
@@ -218,7 +211,7 @@ for(let i = 0; i < tkb.length; i++) {
     }
 }
 
-//console.log(finalResults);
+console.log(finalResults);
 
 /*
     {

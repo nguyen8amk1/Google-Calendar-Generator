@@ -2,7 +2,8 @@ class CalendarEventGenerator {
     // TODO: encapsulate everything in this class 
     constructor() { 
     }
-}; 
+};
+
 
 const COLORS = {
     BLUE : CalendarApp.EventColor.BLUE, 	
@@ -15,7 +16,6 @@ const COLORS = {
     MAUVE: CalendarApp.EventColor.MAUVE,
     PALE_BLUE: CalendarApp.EventColor.PALE_BLUE,
     PALE_GREEN: CalendarApp.EventColor.PALE_GREEN,
-    PALE_BLUE: CalendarApp.EventColor.PALE_RED,
 }; 
 
 let schedule = 
@@ -73,7 +73,7 @@ let schedule =
     gap: 1,
     description: 'P C301 (CLC) - NT213.O22.ATCL - VN - Sĩ số: 45}',
     color: 6,
-    weekday: 4
+    weekday: 6
   },
   {
     name: 'Cơ chế hoạt động của mã độc - NT230.O21.ATCL.1 - VN(HT1) - (Cách 2 tuần)',
@@ -716,7 +716,6 @@ function nextOccuringDate(startDate, gap) {
     return nextStartDate; 
 }
 
-
 function generateDateString(date, time) {
     const months = ["ERROR",  "January", "February", "March", "April", "May", "June", 
                "July", "August", "September", "October", "November", "December" ];
@@ -798,7 +797,8 @@ function createEvent(event, calendar) {
     Logger.log("Added: " + name);
 }
 
-const calendarID = "eba21ac96c3a8a9946fb32039c424c6a0398b23379ae0afddfdd47fae1bed945@group.calendar.google.com"; 
+const calendarID = "7b67866fd7f5842220add4245ec3b230fc0790c2ceb0b56de40a1d8fe3f3f7ab@group.calendar.google.com";
+
 
 function calendarAutomation() {
     const calendar = CalendarApp.getCalendarById(calendarID);
@@ -819,12 +819,12 @@ function calendarAutomation() {
     /*     color: COLORS.ORANGE,  */
     /* }; */
     /**/
-    //console.log(adjustAsyncWeekdateStateDate(event));
-    //console.log(modifiedSchedule([event]));
+
+    // console.log(adjustAsyncWeekdateStateDate(event));
+    // console.log(modifiedSchedule([event]));
 
     for(let i = 0; i < correctedSchedule.length; i++) {
         const event = correctedSchedule[i];
         createEvent(event, calendar);
     }
 }
-
