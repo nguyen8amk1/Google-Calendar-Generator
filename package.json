@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/nguyen8amk1/Google-Calendar-Generator#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12"
+    "@google-cloud/local-auth": "^2.1.0",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.3",
+    "googleapis": "^105.0.0"
   }
 }

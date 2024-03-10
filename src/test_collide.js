@@ -99,7 +99,6 @@ function checkIfTwoEventCollide(event1, event2) {
 
         } else {
             // TODO: different start date and different gap @Current
-            // I think this problem is related to some kind of special Algorithm =))
             // 2 elements: 
                 // + gap -> smaller gap, larger gap 
                 // + start date -> earlier date, later date 
