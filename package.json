@@ -19,7 +19,10 @@
   "homepage": "https://github.com/nguyen8amk1/Google-Calendar-Generator#readme",
   "dependencies": {
     "@google-cloud/local-auth": "^2.1.0",
+    "axios": "^1.6.7",
     "cheerio": "^1.0.0-rc.12",
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.4.5",
     "express": "^4.18.3",
     "googleapis": "^105.0.0"
   }
